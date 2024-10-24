@@ -1,0 +1,6 @@
+[submodule "baseline_models/benchmarks/test-suite-sql-eval"]
+	path = baseline_models/benchmarks/test-suite-sql-eval
+	url = https://github.com/taoyds/test-suite-sql-eval.git
+[submodule "baseline_models/benchmarks/text2sql-data"]
+	path = baseline_models/benchmarks/text2sql-data
+	url = https://github.com/jkkummerfeld/text2sql-data
