@@ -34,11 +34,7 @@ def main():
     )
     device = model.device
 
-    dataset = get_spider_devset(
-        tokenizer,
-        json_path="./benchmarks/text2sql-data/data/spider.json",
-        schema_path="./benchmarks/text2sql-data/data/spider-schema.csv",
-    )
+    dataset = get_spider_devset(tokenizer)
 
     dataset.encodings.to(device)
 
@@ -48,6 +44,9 @@ def main():
     # change batch size based on VRAM usage
     batch_size = 1
     dataloader = DataLoader(dataset, batch_size=batch_size)
+
+    # generation params
+    num_beams = 4
 
     with torch.no_grad():
         for batch in tqdm(dataloader):
@@ -61,17 +60,24 @@ def main():
                 pad_token_id=tokenizer.eos_token_id,
                 max_new_tokens=256,
                 do_sample=False,
-                num_beams=4,
+                num_beams=num_beams
             )
             outputs = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
 
-            # Write outputs and gold queries
-            for output, label in zip(outputs[::batch_size], labels):
+            # empty cache to generate more results w/o memory crashing
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+
+            # Write outputs
+            for output in outputs[::num_beams]:
                 generated_sql = (
                     output.split("[SQL]")[-1].split("[")[0].replace("\n", " ").strip()
                 )
                 generated.write(generated_sql + "\n")
-                gold.write(label + "\n")
+
+            # Write gold queries
+            for sql, db in zip(labels['sql'], labels['database']):
+                gold.write(f"{sql}\t{db}\n")
 
     gold.close()
     generated.close()
