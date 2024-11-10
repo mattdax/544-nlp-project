@@ -1,7 +1,7 @@
 accelerate==1.0.1
 annotated-types==0.7.0
 asttokens==2.4.1
-bitsandbytes==0.44.1
+bitsandbytes>=0.39.0
 certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7

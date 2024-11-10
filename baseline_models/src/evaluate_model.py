@@ -1,3 +1,6 @@
+from argparse import ArgumentParser
+from typing import Optional
+
 import torch
 
 from torch.utils.data import DataLoader
@@ -13,18 +16,22 @@ from spider_dataset import get_spider_devset
 # model = "seeklhy/codes-7b-merged"
 
 
-def main():
-    model = "seeklhy/codes-7b-merged"
+def main(model_name: Optional[str] = None, batch_size: int = 1, quantize: bool = False):
 
-    tokenizer = AutoTokenizer.from_pretrained(model, padding_side="left")
+    if model_name is None:
+        model_name = "seeklhy/codes-7b-merged"
 
-    quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+    quantization_config = None
+    if quantize:
+        quantization_config = BitsAndBytesConfig(load_in_4bit=True)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
+    tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side="left")
+
     # Use torch.float16 for GPUs older than Ampere (RTX 3000 series)
     model = AutoModelForCausalLM.from_pretrained(
-        model,
+        model_name,
         quantization_config=quantization_config,
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
@@ -34,6 +41,11 @@ def main():
     )
     device = model.device
 
+    if tokenizer.pad_token is None:
+        tokenizer.add_special_tokens({"pad_token": "<pad>"})
+        model.resize_token_embeddings(len(tokenizer))
+        model.config.pad_token_id = tokenizer.pad_token_id
+
     dataset = get_spider_devset(tokenizer)
 
     dataset.encodings.to(device)
@@ -41,8 +53,6 @@ def main():
     gold = open("./gold_query.txt", "w")
     generated = open("./generated.txt", "w")
 
-    # change batch size based on VRAM usage
-    batch_size = 1
     dataloader = DataLoader(dataset, batch_size=batch_size)
 
     # generation params
@@ -60,7 +70,7 @@ def main():
                 pad_token_id=tokenizer.eos_token_id,
                 max_new_tokens=256,
                 do_sample=False,
-                num_beams=num_beams
+                num_beams=num_beams,
             )
             outputs = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
 
@@ -76,7 +86,7 @@ def main():
                 generated.write(generated_sql + "\n")
 
             # Write gold queries
-            for sql, db in zip(labels['sql'], labels['database']):
+            for sql, db in zip(labels["sql"], labels["database"]):
                 gold.write(f"{sql}\t{db}\n")
 
     gold.close()
@@ -84,4 +94,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = ArgumentParser()
+
+    parser.add_argument("--model_name", type=str, required=False)
+    parser.add_argument("-B", "--batch_size", type=int, required=False)
+    parser.add_argument("-Q", "--quantize", action="store_true")
+
+    args = parser.parse_args()
+
+    main(**vars(args))
