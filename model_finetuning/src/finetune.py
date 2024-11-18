@@ -63,12 +63,16 @@ def main(model_name: Optional[str] = None):
         args=TrainingArguments(
             per_device_train_batch_size=1,
             num_train_epochs=5,
+            logging_steps=1,
+            save_total_limit=2,
             learning_rate=2e-4,
             output_dir="outputs",
         ),
     )
 
     trainer.train()
+    trainer.save_model("outputs")  # Save the model
+    tokenizer.save_pretrained("outputs")  # Save the tokenizer
 
 
 if __name__ == "__main__":
