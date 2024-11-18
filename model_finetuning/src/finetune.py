@@ -20,7 +20,7 @@ def main(model_name: Optional[str] = None):
     if model_name is None:
         model_name = "seeklhy/codes-7b"
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # device = "cuda" if torch.cuda.is_available() else "cpu"
 
     quantization_config = BitsAndBytesConfig(
         load_in_4bit=True,
@@ -36,7 +36,7 @@ def main(model_name: Optional[str] = None):
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
-        device_map=device,
+        # device_map=device,
         use_cache=True,
     )
 
@@ -54,16 +54,14 @@ def main(model_name: Optional[str] = None):
     model = get_peft_model(model, lora_config)
 
     dataset = get_dataset()
-    dataset = dataset.map(
-        lambda samples: tokenizer(samples["text_to_sql"]).to(device), batched=True
-    )
-    print(dataset["train"][0])
+    dataset = dataset.map(lambda samples: tokenizer(samples["text_to_sql"]), batched=True)
 
     trainer = Trainer(
         model=model,
         train_dataset=dataset["train"],
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
         args=TrainingArguments(
+            per_device_train_batch_size=1,
             num_train_epochs=5,
             learning_rate=2e-4,
             output_dir="outputs",
