@@ -36,7 +36,7 @@ def main(model_name: Optional[str] = None):
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
         attn_implementation="flash_attention_2",
-        # device_map=device,
+        device_map="auto",
         use_cache=True,
     )
 
@@ -61,12 +61,13 @@ def main(model_name: Optional[str] = None):
         train_dataset=dataset["train"],
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
         args=TrainingArguments(
-            per_device_train_batch_size=1,
-            num_train_epochs=5,
+            per_device_train_batch_size=4,
+            num_train_epochs=4,
             logging_steps=1,
             save_total_limit=2,
-            learning_rate=2e-4,
+            learning_rate=5e-6,
             output_dir="outputs",
+	    fp16 = True,
         ),
     )
 
