@@ -8,7 +8,7 @@
 #SBATCH --time=16:00:00
 
 module purge
-module load gcc nvhpc python/3.12.2
+module load gcc git nvhpc python/3.12.2
 
 python -m venv venv
 source ./venv/bin/activate
