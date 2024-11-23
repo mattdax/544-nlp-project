@@ -4,3 +4,6 @@
 [submodule "baseline_models/benchmarks/text2sql-data"]
 	path = baseline_models/benchmarks/text2sql-data
 	url = https://github.com/jkkummerfeld/text2sql-data
+[submodule "schema_filter/text2sql-schema-filter"]
+	path = schema_filter/text2sql-schema-filter
+	url = https://github.com/RUCKBReasoning/text2sql-schema-filter.git
