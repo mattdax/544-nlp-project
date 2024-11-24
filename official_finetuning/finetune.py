@@ -15,7 +15,7 @@ from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_tr
 
 from process_data import get_dataset
 
-model_name = "seeklhy/codes-7b"
+model_name = "seeklhy/codes-7b-spider"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
@@ -92,14 +92,14 @@ def main(model_name: Optional[str] = None):
         r=16,
         lora_alpha=32,
         lora_dropout=0.05,
-        target_modules=["q_proj", "v_proj"],
+        # target_modules=["q_proj", "v_proj"],
         bias="none",
         task_type=TaskType.CAUSAL_LM,
     )
 
     model = get_peft_model(model, lora_config)
 
-    max_length = 512
+    max_length = 4096
     dataset = get_dataset()
     dataset = dataset.map(
         lambda examples: tokenize_dataset(examples, tokenizer, max_length=max_length),
