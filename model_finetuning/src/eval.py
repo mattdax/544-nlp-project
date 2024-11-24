@@ -20,6 +20,30 @@ Follow the below instructions step by step
 3. Join Structure (Use JOIN clauses to combine tables based on shared keys or relationships)
 4. Aggregation Structure (Use aggregate functions like COUNT, SUM, AVG, etc., to summarize data)
 
+# Here is one example for you to understand the task better:
+##
+User question:
+Find the total budgets of the Marketing or Finance department.
+ 
+##
+Relevant schema:
+Schema_links:
+['department.budget', 'department.dept_name', 'Marketing', 'Finance']
+ 
+##
+Output for Example 1
+<chains>
+1. Sequential Structure: Begin with the SELECT clause to specify the required field. Since the question asks for "total budgets," an aggregation function (SUM) will be used on the "department.budget" field.
+2. Condition Structure: Apply a WHERE clause to filter for the specific departments mentioned, i.e., "Marketing" or "Finance."
+3. Join Structure: No JOIN is needed here, as the query only involves the "department" table.
+4. Aggregation Structure: Use SUM to aggregate the budget values for the specified departments, providing the total budget for each.
+</chains>
+<SQL>
+SELECT SUM(department.budget)
+FROM department
+WHERE department.dept_name = 'Marketing' OR department.dept_name = 'Finance';
+</SQL>
+
 # Relevant schema:
 {schema}
 
@@ -62,6 +86,7 @@ def evaluate_model():
     # Open output file
     eval_df = pd.read_json(eval_file)
     eval_df = eval_df[eval_df["score"] == 1]
+    eval_df = eval_df[eval_df["classification"] == "EASY"]
     eval = process_dataset(eval_df)
     print("here")
     with open(output_file, "w") as out_f:

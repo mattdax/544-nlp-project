@@ -73,7 +73,7 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
     for index, row in df.iterrows():
         sample = template.format(
             question=row["question"],
-            schema=row["schema_filter"],
+            schema=row["filtered_schema"],
             reasoning=process_reasoning(row["reasoning"]),
             sql=row["predicted_sql"],
         )
