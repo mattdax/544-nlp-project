@@ -20,36 +20,33 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
 def tokenize_dataset(samples, tokenizer, max_length=512):
-    texts = samples["text"]
-    labels = samples["labels"]
-
     # Ensure the tokenizer uses a valid padding token
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token  # Use <|endoftext|> as padding token
 
     tokenized_batch = {"input_ids": [], "attention_mask": [], "labels": []}
 
-    for text, label in zip(texts, labels):
-        # Tokenize prefix and target sequences
-        prefix_ids = [tokenizer.bos_token_id] + tokenizer(text, truncation=False)["input_ids"] + [tokenizer.eos_token_id]
+    for text, label in zip(samples["text"], samples["labels"]):
+        # Prepare inputs and labels using the provided logic
+        prefix_ids = [tokenizer.bos_token_id] + tokenizer(text, truncation=False)["input_ids"]
         target_ids = tokenizer(label, truncation=False)["input_ids"] + [tokenizer.eos_token_id]
 
-        # Combine sequences
-        input_ids = prefix_ids + target_ids
+        seq_length = len(prefix_ids) + len(target_ids)
 
-        # Calculate padding
-        pad_length = max(0, max_length - len(input_ids))
-        input_ids += [tokenizer.pad_token_id] * pad_length
-        attention_mask = [1] * len(input_ids) + [0] * pad_length
-        labels = [-100] * len(prefix_ids) + target_ids + [-100] * pad_length
+        if seq_length <= max_length:  # Pad inputs with pad_token_id
+            pad_length = max_length - seq_length
+            input_ids = prefix_ids + target_ids + [tokenizer.pad_token_id] * pad_length
+            attention_mask = [1] * seq_length + [0] * pad_length  # Mask for non-padding tokens
+            labels = [-100] * len(prefix_ids) + target_ids + [-100] * pad_length  # Loss only for target_ids
+        else:  # Truncate to max_length
+            print("The current input sequence exceeds max_length; truncating.")
+            input_ids = prefix_ids + target_ids
+            input_ids = [tokenizer.bos_token_id] + input_ids[-(max_length - 1):]  # Ensure <bos> starts the sequence
+            attention_mask = [1] * max_length
+            labels = [-100] * len(prefix_ids) + target_ids
+            labels = labels[-max_length:]  # Truncate labels to match max_length
 
-        # Truncate if necessary
-        if len(input_ids) > max_length:
-            input_ids = input_ids[:max_length]
-            attention_mask = attention_mask[:max_length]
-            labels = labels[:max_length]
-
-        # Append to batch
+        # Append processed inputs to batch
         tokenized_batch["input_ids"].append(input_ids)
         tokenized_batch["attention_mask"].append(attention_mask)
         tokenized_batch["labels"].append(labels)
