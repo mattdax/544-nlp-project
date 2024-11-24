@@ -20,11 +20,13 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
 def tokenize_dataset(samples):
-    
-    
-    tokenized_sample = tokenizer(samples["text"],truncation=True)
-    labels = tokenizer(samples["labels"],truncation=True)
+    tokenized_sample = tokenizer(samples["text"],truncation=True,padding="max_length",
+        max_length=512)
+    with tokenizer.as_target_tokenizer():
+        labels = tokenizer(samples["labels"],truncation=True,padding="max_length",
+        max_length=512)
     tokenized_sample["labels"] = labels["input_ids"]
+    #print(tokenized_sample["labels"])
     return tokenized_sample
 
 
@@ -58,7 +60,7 @@ def main(model_name: Optional[str] = None):
         r=16,
         lora_alpha=32,
         lora_dropout=0.05,
-        target_modules=["q_proj", "v_proj"],
+        #target_modules=["q_proj", "v_proj"],
         bias="none",
         task_type=TaskType.CAUSAL_LM,
     )
@@ -66,7 +68,12 @@ def main(model_name: Optional[str] = None):
     model = get_peft_model(model, lora_config)
 
     dataset = get_dataset()
-    dataset = dataset.map(tokenize_dataset, batched=True)
+    dataset = dataset.map(
+    tokenize_dataset,
+    batched=True,
+    remove_columns=["text", "labels"]
+)
+    print(dataset)
 
     
     trainer = Trainer(
@@ -76,7 +83,7 @@ def main(model_name: Optional[str] = None):
         args=TrainingArguments(
             per_device_train_batch_size=4,
             num_train_epochs=4,
-            logging_steps=1,
+            logging_steps=20,
             learning_rate=5e-6,
             output_dir="outputs",
 	    fp16 = True,
