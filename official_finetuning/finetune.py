@@ -19,18 +19,52 @@ model_name = "seeklhy/codes-7b"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
-def tokenize_dataset(samples):
-    
-    
-    tokenized_sample = tokenizer(samples["text"],truncation=True)
-    labels = tokenizer(samples["labels"],truncation=True)
-    tokenized_sample["labels"] = labels["input_ids"]
-    return tokenized_sample
+def tokenize_dataset(samples, tokenizer, max_length=512):
+    texts = samples["text"]
+    labels = samples["labels"]
+
+    # Ensure the tokenizer uses a valid padding token
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token  # Use <|endoftext|> as padding token
+
+    tokenized_batch = {"input_ids": [], "attention_mask": [], "labels": []}
+
+    for text, label in zip(texts, labels):
+        # Tokenize prefix and target sequences
+        prefix_ids = [tokenizer.bos_token_id] + tokenizer(text, truncation=False)["input_ids"] + [tokenizer.eos_token_id]
+        target_ids = tokenizer(label, truncation=False)["input_ids"] + [tokenizer.eos_token_id]
+
+        # Combine sequences
+        input_ids = prefix_ids + target_ids
+
+        # Calculate padding
+        pad_length = max(0, max_length - len(input_ids))
+        input_ids += [tokenizer.pad_token_id] * pad_length
+        attention_mask = [1] * len(input_ids) + [0] * pad_length
+        labels = [-100] * len(prefix_ids) + target_ids + [-100] * pad_length
+
+        # Truncate if necessary
+        if len(input_ids) > max_length:
+            input_ids = input_ids[:max_length]
+            attention_mask = attention_mask[:max_length]
+            labels = labels[:max_length]
+
+        # Append to batch
+        tokenized_batch["input_ids"].append(input_ids)
+        tokenized_batch["attention_mask"].append(attention_mask)
+        tokenized_batch["labels"].append(labels)
+
+    # Convert to tensors
+    tokenized_batch["input_ids"] = torch.tensor(tokenized_batch["input_ids"], dtype=torch.int64)
+    tokenized_batch["attention_mask"] = torch.tensor(tokenized_batch["attention_mask"], dtype=torch.int64)
+    tokenized_batch["labels"] = torch.tensor(tokenized_batch["labels"], dtype=torch.int64)
+
+    return tokenized_batch
 
 
 def main(model_name: Optional[str] = None):
     if model_name is None:
-        model_name = "seeklhy/codes-7b"
+        model_name = "seeklhy/codes-7b-spider"
 
     # device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -65,8 +99,13 @@ def main(model_name: Optional[str] = None):
 
     model = get_peft_model(model, lora_config)
 
+    max_length = 512
     dataset = get_dataset()
-    dataset = dataset.map(tokenize_dataset, batched=True)
+    dataset = dataset.map(
+        lambda examples: tokenize_dataset(examples, tokenizer, max_length=max_length),
+        batched=True,
+        remove_columns=["text", "labels"],
+    )
 
     
     trainer = Trainer(
