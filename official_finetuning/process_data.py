@@ -48,12 +48,18 @@ WHERE department.dept_name = 'Marketing' OR department.dept_name = 'Finance';
 # Relevant schema:
 {schema}
 
+
+"""
+
+y_format = """
+
 <chains>
 {reasoning}
 </chains>
 <SQL>
 {sql}
 </SQL>\
+
 """
 
 
@@ -74,11 +80,13 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
         sample = template.format(
             question=row["question"],
             schema=process_schema(row["fields"],row["schema_links"]),
-            reasoning=process_reasoning(row["reasoning"]),
-            sql=row["predicted_sql"],
         )
-        sql = row["gold_sql"]
-        dataset.append({"text": sample, "labels": sql})
+        label = y_format.format(
+            reasoning = row["reasoning"],
+            sql = row["predicated_sql"]
+        )
+        
+        dataset.append({"text": sample, "labels": label})
     return dataset
 
 
