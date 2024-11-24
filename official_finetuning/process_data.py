@@ -73,7 +73,7 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
     for index, row in df.iterrows():
         sample = template.format(
             question=row["question"],
-            schema=row["fields"],
+            schema=row["schema_filter"],
             reasoning=process_reasoning(row["reasoning"]),
             sql=row["predicted_sql"],
         )
@@ -82,8 +82,8 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
 
 
 def get_dataset(load_easy: bool = True) -> DatasetDict:
-    train_path = "full_train_gpt4o_mini_query_gen_gpt4o_query_correction.json"
-    eval_path = "full_val_gpt4o_mini_query_gen_gpt4o_query_correction.json"
+    train_path = "train.json"
+    eval_path = "val.json"
 
     train_df = pd.read_json(train_path)
     eval_df = pd.read_json(eval_path)
@@ -102,7 +102,7 @@ def get_dataset(load_easy: bool = True) -> DatasetDict:
 
 if __name__ == "__main__":
     df = pd.read_json(
-        "full_train_gpt4o_mini_query_gen_gpt4o_query_correction.json"
+        "train.json"
     )
 
     print(df.columns)
