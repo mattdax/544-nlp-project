@@ -73,31 +73,32 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
     for index, row in df.iterrows():
         sample = template.format(
             question=row["question"],
-            schema=row["filtered_schema"],
+            schema=process_schema(row["fields"],row["schema_links"]),
             reasoning=process_reasoning(row["reasoning"]),
             sql=row["predicted_sql"],
         )
-        dataset.append(sample)
+        sql = row["gold_sql"]
+        dataset.append({"text": sample, "labels": sql})
     return dataset
 
 
 def get_dataset(load_easy: bool = True) -> DatasetDict:
     train_path = "train.json"
-    eval_path = "val.json"
+    #eval_path = "val.json"
 
     train_df = pd.read_json(train_path)
-    eval_df = pd.read_json(eval_path)
+    #eval_df = pd.read_json(eval_path)
 
     if load_easy:
-        train_df = train_df[train_df["classification"] == "EASY"]
-        eval_df = eval_df[eval_df["classification"] == "EASY"]
-
-    return DatasetDict(
-        {
-            "train": Dataset.from_dict({"text_to_sql": process_dataset(train_df)}),
-            "eval": Dataset.from_dict({"text_to_sql": process_dataset(eval_df)}),
-        }
-    )
+        train_df = process_dataset(train_df[train_df["classification"] == "EASY"])
+        #eval_df = eval_df[eval_df["classification"] == "EASY"]
+        
+    return Dataset.from_dict(
+    {
+        "text": [sample["text"] for sample in train_df],
+        "labels": [sample["labels"] for sample in train_df],
+    }
+)
 
 
 if __name__ == "__main__":

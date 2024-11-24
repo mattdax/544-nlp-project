@@ -15,6 +15,18 @@ from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_tr
 
 from process_data import get_dataset
 
+model_name = "seeklhy/codes-7b"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+
+def tokenize_dataset(samples):
+    
+    
+    tokenized_sample = tokenizer(samples["text"],truncation=True)
+    labels = tokenizer(samples["labels"],truncation=True)
+    tokenized_sample["labels"] = labels["input_ids"]
+    return tokenized_sample
+
 
 def main(model_name: Optional[str] = None):
     if model_name is None:
@@ -46,7 +58,7 @@ def main(model_name: Optional[str] = None):
         r=16,
         lora_alpha=32,
         lora_dropout=0.05,
-        # target_modules=["q_proj", "v_proj"],
+        target_modules=["q_proj", "v_proj"],
         bias="none",
         task_type=TaskType.CAUSAL_LM,
     )
@@ -54,11 +66,12 @@ def main(model_name: Optional[str] = None):
     model = get_peft_model(model, lora_config)
 
     dataset = get_dataset()
-    dataset = dataset.map(lambda samples: tokenizer(samples["text_to_sql"]), batched=True)
+    dataset = dataset.map(tokenize_dataset, batched=True)
 
+    
     trainer = Trainer(
         model=model,
-        train_dataset=dataset["train"],
+        train_dataset=dataset,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
         args=TrainingArguments(
             per_device_train_batch_size=4,
