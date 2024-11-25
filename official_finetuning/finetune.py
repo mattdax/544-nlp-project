@@ -96,7 +96,7 @@ def main(model_name: Optional[str] = None):
 
     model = get_peft_model(model, lora_config)
 
-    max_length = 4096
+    max_length = 2048
     dataset = get_dataset()
     dataset = dataset.map(
         lambda examples: tokenize_dataset(examples, tokenizer, max_length=max_length),
