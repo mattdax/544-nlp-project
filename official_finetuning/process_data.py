@@ -83,7 +83,7 @@ def process_dataset(df: pd.DataFrame) -> List[str]:
         )
         label = y_format.format(
             reasoning = row["reasoning"],
-            sql = row["predicated_sql"]
+            sql = row["predicted_sql"]
         )
         
         dataset.append({"text": sample, "labels": label})
