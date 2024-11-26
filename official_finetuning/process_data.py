@@ -108,6 +108,21 @@ def get_dataset(load_easy: bool = True) -> DatasetDict:
     }
 )
 
+def get_eval_dataset(load_easy: bool = True) -> DatasetDict:
+    eval_path = "val.json"
+
+    eval_df = pd.read_json(eval_path)
+
+    if load_easy:
+        eval_df = process_dataset(eval_df[eval_df["classification"] == "EASY"])
+
+    return Dataset.from_dict(
+    {
+        "text": [sample["text"] for sample in eval_df],
+        "labels": [sample["labels"] for sample in eval_df],
+    }
+)
+
 
 if __name__ == "__main__":
     df = pd.read_json(
@@ -122,3 +137,13 @@ if __name__ == "__main__":
 
     # Get a sample from the dataset
     print(process_dataset(df[:1])[0])
+
+    #df1 = pd.read_json(
+    #    "val.json"
+    #)
+    #print(df1.columns)
+
+    #df1 = df1[df1["score"] == 1]
+    #print(f"Validation dataset size: {len(df1)}")
+
+    #print(process_dataset(df1[:1])[0])

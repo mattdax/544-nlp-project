@@ -13,7 +13,7 @@ from transformers import (
 )
 from peft import get_peft_model, LoraConfig, TaskType, prepare_model_for_kbit_training
 
-from process_data import get_dataset
+from process_data import get_dataset, get_eval_dataset
 
 model_name = "seeklhy/codes-7b-spider"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -104,15 +104,25 @@ def main(model_name: Optional[str] = None):
         remove_columns=["text", "labels"],
     )
 
+    eval_dataset = get_eval_dataset()
+    eval_dataset = eval_dataset.map(
+    lambda examples: tokenize_dataset(examples, tokenizer, max_length=max_length),
+    batched=True,
+    remove_columns=["text", "labels"]
+    )
+
     
     trainer = Trainer(
         model=model,
         train_dataset=dataset,
+        eval_dataset=eval_dataset,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
         args=TrainingArguments(
             per_device_train_batch_size=4,
             num_train_epochs=4,
             logging_steps=1,
+            evaluation_strategy="steps",  
+            eval_steps=20, #adjust evaluation loss logging here
             learning_rate=5e-6,
             output_dir="outputs",
 	    fp16 = True,
