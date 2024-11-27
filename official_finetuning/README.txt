@@ -2,9 +2,9 @@
 in order to connect to the USC server: https://www.carc.usc.edu/user-guides/quick-start-guides/anyconnect-vpn-setup
 
 2. To connect to the carc server, in terminal run: ssh userid@discovery.usc.edu and enter your password. 
-User id is your usc id (example: daxner@discover.usc.edu).
+User id is your usc id (example: daxner@discovery.usc.edu).
 
-3. You will need to use scp to upload the folder to the carc server. scp -r folder_directory userid@discover.usc.edu:~. Alternatively, setup the ssh connection
+3. You will need to use scp to upload the folder to the carc server. scp -r folder_directory userid@discovery.usc.edu:~. Alternatively, setup the ssh connection
 through ssh extension(makes it a lot easier to edit files on the carc server to, heavily recommended).
 
 4. To run the training there are .sh files included in the folder. To start the program execute 'sbatch finetune_a40.sh' or 'sbatch finetune_a100.sh'. Once the program starts
