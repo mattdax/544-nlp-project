@@ -140,14 +140,14 @@ def main(model_name: Optional[str] = None):
             # evaluation_strategy="steps",  
             # eval_steps=20, #adjust evaluation loss logging here
             learning_rate=5e-6,
-            output_dir="outputs_one_shot_4_epochs",
+            output_dir="outputs_zero_shot_4_epochs",
 	    fp16 = True,
         ),
     )
 
     trainer.train()
-    trainer.save_model("outputs_one_shot_4_epochs")  # Save the model
-    tokenizer.save_pretrained("outputs_one_shot_4_epochs")  # Save the tokenizer
+    trainer.save_model("outputs_zero_shot_4_epochs")  # Save the model
+    tokenizer.save_pretrained("outputs_zero_shot_4_epochs")  # Save the tokenizer
 
 
 if __name__ == "__main__":
