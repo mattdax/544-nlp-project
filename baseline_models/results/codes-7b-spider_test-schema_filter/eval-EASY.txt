@@ -1,0 +1,236 @@
+medium pred: SELECT singer.Name,  singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID JOIN concert ON singer_in_concert.concert_ID  =  concert.concert_ID WHERE concert.Theme LIKE "%Hey%"
+medium gold: SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'
+
+easy pred: SELECT DISTINCT singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID WHERE singer.Age  >  20
+easy gold: SELECT DISTINCT country FROM singer WHERE age  >  20
+
+medium pred: SELECT FlightNo FROM flights WHERE Airline  =  "United Airlines"
+medium gold: SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T2.uid  =  T1.Airline WHERE T2.Airline  =  "United Airlines"
+
+easy pred: SELECT count(*) FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE airports.AirportName  =  'APG'
+easy gold: SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  "APG"
+
+extra pred: SELECT airlines.Airline FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline GROUP BY flights.Airline ORDER BY count(*) DESC LIMIT 1
+extra gold: SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1
+
+extra pred: SELECT airlines.Airline FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline GROUP BY flights.Airline ORDER BY count(*) DESC LIMIT 1
+extra gold: SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1
+
+medium pred: SELECT max(Accelerate) FROM cars_data
+medium gold: SELECT max(Accelerate) ,  Cylinders FROM CARS_DATA GROUP BY Cylinders;
+
+easy pred: SELECT count(DISTINCT Continent) FROM continents
+easy gold: SELECT count(*) FROM CONTINENTS;
+
+medium pred: SELECT airports.City,  airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.DestAirport WHERE airports.AirportName  =  'Alton'
+medium gold: SELECT City ,  Country FROM AIRPORTS WHERE AirportName  =  "Alton"
+
+medium pred: SELECT max(Capacity),  avg(Average) FROM stadium
+medium gold: select max(capacity), average from stadium
+
+easy pred: SELECT count(*) FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE airports.AirportName  =  "APG"
+easy gold: SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  "APG"
+
+medium pred: SELECT stadium.Name,  stadium.Capacity FROM stadium JOIN concert ON stadium.Stadium_ID  =  concert.Stadium_ID GROUP BY concert.Stadium_ID ORDER BY avg(concert.Attendance) DESC LIMIT 1
+medium gold: SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1
+
+medium pred: SELECT singer.Name,  singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID JOIN concert ON singer_in_concert.concert_ID  =  concert.concert_ID WHERE concert.Theme LIKE "%Hey%"
+medium gold: SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'
+
+easy pred: SELECT airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE flights.Airline  =  "JetBlue Airways"
+easy gold: SELECT Country FROM AIRLINES WHERE Airline  =  "JetBlue Airways"
+
+easy pred: SELECT airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE flights.Airline  =  'Jetblue Airways'
+easy gold: SELECT Country FROM AIRLINES WHERE Airline  =  "JetBlue Airways"
+
+medium pred: SELECT first_name,  country_code FROM players ORDER BY birth_date DESC LIMIT 1
+medium gold: SELECT first_name ,  country_code FROM players ORDER BY birth_date LIMIT 1
+
+medium pred: SELECT museum.Museum_ID,  museum.Name FROM museum JOIN visit ON museum.Museum_ID  =  visit.Museum_ID GROUP BY museum.Museum_ID ORDER BY sum(visit.Num_of_Ticket) DESC LIMIT 1
+medium gold: SELECT museum_id ,  name FROM museum ORDER BY num_of_staff DESC LIMIT 1
+
+easy pred: SELECT employee.Name,  employee.Age,  employee.City,  hiring.Start_from,  hiring.Is_full_time,  shop.Name FROM hiring JOIN employee ON hiring.Employee_ID  =  employee.Employee_ID JOIN shop ON hiring.Shop_ID  =  shop.Shop_ID
+easy gold: SELECT * FROM hiring
+
+medium pred: SELECT Version_Number,  Template_Type_Code FROM Templates ORDER BY Version_Number ASC LIMIT 1
+medium gold: SELECT min(Version_Number) ,  template_type_code FROM Templates
+
+medium pred: SELECT first_name,  country_code FROM players ORDER BY birth_date DESC LIMIT 1
+medium gold: SELECT first_name ,  country_code FROM players ORDER BY birth_date LIMIT 1
+
+medium pred: SELECT DISTINCT battle.name FROM battle JOIN ship ON battle.id  =  ship.lost_in_battle JOIN death ON death.caused_by_ship_id  =  ship.id WHERE battle.bulgarian_commander  =  "Kaloyan" AND battle.latin_commander  =  "Baldwin I"
+medium gold: SELECT name FROM battle WHERE bulgarian_commander  =  'Kaloyan' AND latin_commander  =  'Baldwin I'
+
+medium pred: SELECT Documents.Document_Name,  Templates.Template_ID FROM Templates JOIN Documents ON Templates.Template_ID  =  Documents.Template_ID WHERE Documents.Document_Description LIKE "%w%"
+medium gold: SELECT document_name ,  template_id FROM Documents WHERE Document_Description LIKE "%w%"
+
+medium pred: SELECT count(*),  employee.City FROM employee JOIN hiring ON employee.Employee_ID  =  hiring.Employee_ID GROUP BY employee.City
+medium gold: SELECT count(*) ,  city FROM employee GROUP BY city
+
+medium pred: SELECT count(*),  employee.City FROM employee JOIN hiring ON employee.Employee_ID  =  hiring.Employee_ID GROUP BY employee.City
+medium gold: SELECT count(*) ,  city FROM employee GROUP BY city
+
+medium pred: SELECT Templates.Version_Number,  Templates.Template_Type_Code FROM Templates JOIN Ref_Template_Types ON Templates.Template_Type_Code  =  Ref_Template_Types.Template_Type_Code WHERE Templates.Version_Number  >  5
+medium gold: SELECT version_number ,  template_type_code FROM Templates WHERE version_number  >  5
+
+medium pred: SELECT Documents.Document_Name,  Documents.Template_ID FROM Documents JOIN Paragraphs ON Documents.Document_ID  =  Paragraphs.Document_ID WHERE Paragraphs.Paragraph_Text LIKE "%w%"
+medium gold: SELECT document_name ,  template_id FROM Documents WHERE Document_Description LIKE "%w%"
+
+medium pred: SELECT Templates.Template_Type_Code,  min(Templates.Version_Number) FROM Templates JOIN Documents ON Templates.Template_ID  =  Documents.Template_ID GROUP BY Templates.Template_Type_Code
+medium gold: SELECT min(Version_Number) ,  template_type_code FROM Templates
+
+medium pred: SELECT count(*),  players.hand FROM players JOIN matches ON players.player_id  =  matches.winner_id OR players.player_id  =  matches.loser_id GROUP BY players.hand
+medium gold: SELECT count(*) ,  hand FROM players GROUP BY hand
+
+medium pred: SELECT battle.name,  battle.date,  battle.result FROM battle
+medium gold: SELECT name ,  date FROM battle
+
+medium pred: SELECT count(*),  players.hand FROM players JOIN matches ON players.player_id  =  matches.winner_id OR players.player_id  =  matches.loser_id GROUP BY players.hand
+medium gold: SELECT count(*) ,  hand FROM players GROUP BY hand
+
+medium pred: SELECT Templates.Template_ID,  Templates.Version_Number,  Templates.Template_Type_Code FROM Templates JOIN Ref_Template_Types ON Templates.Template_Type_Code  =  Ref_Template_Types.Template_Type_Code
+medium gold: SELECT template_id ,  version_number ,  template_type_code FROM Templates
+
+medium pred: SELECT visitor.Name,  visitor.Level_of_membership FROM visitor JOIN visit ON visitor.ID  =  visit.visitor_ID WHERE visitor.Level_of_membership  >  4 ORDER BY visitor.Age
+medium gold: SELECT name ,  Level_of_membership FROM visitor WHERE Level_of_membership  >  4 ORDER BY age DESC
+
+easy pred: SELECT other_student_details FROM Students ORDER BY last_name DESC
+easy gold: SELECT other_student_details FROM Students ORDER BY other_student_details DESC
+
+medium pred: SELECT TV_Channel.Package_Option,  TV_series.series_name FROM TV_Channel JOIN TV_series ON TV_Channel.id  =  TV_series.Channel WHERE TV_Channel.Hight_definition_TV  =  1
+medium gold: SELECT package_option ,  series_name FROM TV_Channel WHERE hight_definition_TV  =  "yes"
+
+medium pred: SELECT first_name,  middle_name,  last_name FROM Students WHERE date_left  =  "9999-12-31"
+medium gold: SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_left ASC LIMIT 1
+
+easy pred: SELECT Cartoon.Title FROM Cartoon JOIN TV_series ON Cartoon.id  =  TV_series.id WHERE Cartoon.Directed_by  =  "Ben Jones"
+easy gold: SELECT Title FROM Cartoon WHERE Directed_by = "Ben Jones";
+
+hard pred: SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  'Spanish' AND country.Continent  =  'Asia' AND country.LifeExpectancy  =  ( SELECT MIN ( country.LifeExpectancy ) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  'Spanish' AND country.Continent  =  'Asia' );
+hard gold: SELECT Name FROM country WHERE Continent  =  "Asia" ORDER BY LifeExpectancy LIMIT 1
+
+easy pred: SELECT sum(country.SurfaceArea) FROM country JOIN city ON country.Code  =  city.CountryCode WHERE city.District  =  "Caribbean"
+easy gold: SELECT sum(SurfaceArea) FROM country WHERE Region  =  "Caribbean"
+
+easy pred: SELECT Cartoon.Title FROM Cartoon JOIN TV_series ON Cartoon.id  =  TV_series.id WHERE Cartoon.Directed_by  =  "Ben Jones"
+easy gold: SELECT Title FROM Cartoon WHERE Directed_by = "Ben Jones";
+
+medium pred: SELECT count(DISTINCT Content) FROM TV_Channel
+medium gold: SELECT count(DISTINCT series_name) ,  count(DISTINCT content) FROM TV_Channel;
+
+easy pred: SELECT count(DISTINCT state) FROM AREA_CODE_STATE
+easy gold: SELECT count(*) FROM area_code_state
+
+easy pred: SELECT SUM ( city.Population ) FROM city JOIN country ON city.CountryCode  =  country.Code WHERE city.District  =  "Gelderland";
+easy gold: SELECT sum(Population) FROM city WHERE District  =  "Gelderland"
+
+medium pred: SELECT TV_Channel.Package_Option,  TV_Channel.series_name FROM TV_Channel JOIN TV_series ON TV_Channel.id  =  TV_series.Channel WHERE TV_Channel.Hight_definition_TV  =  1
+medium gold: SELECT package_option ,  series_name FROM TV_Channel WHERE hight_definition_TV  =  "yes"
+
+easy pred: SELECT Students.first_name FROM Students JOIN Addresses ON Students.permanent_address_id  =  Addresses.address_id EXCEPT SELECT Students.first_name FROM Students JOIN Addresses ON Students.current_address_id  =  Addresses.address_id
+easy gold: SELECT first_name FROM Students WHERE current_address_id != permanent_address_id
+
+easy pred: SELECT population FROM city WHERE District  =  "Gelderland";
+easy gold: SELECT sum(Population) FROM city WHERE District  =  "Gelderland"
+
+easy pred: SELECT sum(country.SurfaceArea) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Spanish" AND country.Region  =  "Caribbean";
+easy gold: SELECT sum(SurfaceArea) FROM country WHERE Region  =  "Caribbean"
+
+medium pred: SELECT first_name,  middle_name,  last_name FROM Students WHERE date_left  =  "9999-12-31" ORDER BY date_first_registered ASC LIMIT 1
+medium gold: SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_left ASC LIMIT 1
+
+easy pred: SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.GovernmentForm  =  'Republic'
+easy gold: SELECT count(*) FROM country WHERE GovernmentForm  =  "Republic"
+
+easy pred: SELECT TV_series.Air_Date FROM TV_series JOIN Cartoon ON TV_series.id  =  Cartoon.Channel WHERE Cartoon.Title  =  "A Love of a Lifetime"
+easy gold: SELECT Air_Date FROM TV_series WHERE Episode = "A Love of a Lifetime";
+
+hard pred: SELECT country.Name,  country.Population,  country.LifeExpectancy FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Chinese" AND country.Region  =  "Asia" AND country.SurfaceArea  =  ( SELECT MAX ( country.SurfaceArea ) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Chinese" AND country.Region  =  "Asia" );
+hard gold: SELECT Name ,  Population ,  LifeExpectancy FROM country WHERE Continent  =  "Asia" ORDER BY SurfaceArea DESC LIMIT 1
+
+medium pred: SELECT country.Region,  country.Population FROM country JOIN city ON country.Code  =  city.CountryCode WHERE country.Name  =  "Angola";
+medium gold: SELECT Population ,  Region FROM country WHERE Name  =  "Angola"
+
+easy pred: SELECT first_name,  last_name FROM Students ORDER BY last_name DESC,  first_name DESC
+easy gold: SELECT other_student_details FROM Students ORDER BY other_student_details DESC
+
+easy pred: SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Republican" AND country.GovernmentForm  =  "Republic";
+easy gold: SELECT count(*) FROM country WHERE GovernmentForm  =  "Republic"
+
+easy pred: SELECT Name FROM conductor EXCEPT SELECT conductor.Name FROM conductor JOIN orchestra ON conductor.Conductor_ID  =  orchestra.Conductor_ID WHERE orchestra.Nationality  =  "USA"
+easy gold: SELECT Name FROM conductor WHERE Nationality != 'USA'
+
+medium pred: SELECT conductor.Name FROM conductor JOIN orchestra ON conductor.Conductor_ID  =  orchestra.Conductor_ID GROUP BY conductor.Conductor_ID ORDER BY sum(orchestra.Year_of_Founded) DESC LIMIT 1
+medium gold: SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1
+
+medium pred: SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Europe' AND country.Population  =  80000;
+medium gold: SELECT Name FROM country WHERE continent  =  "Europe" AND Population  =  "80000"
+
+easy pred: SELECT age FROM Dogs ORDER BY age DESC LIMIT 1
+easy gold: SELECT max(age) FROM Dogs
+
+extra pred: SELECT Dogs.name,  Treatments.date_of_treatment FROM Dogs JOIN Treatments ON Dogs.dog_id  =  Treatments.dog_id WHERE Dogs.breed_code  =  (SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) DESC LIMIT 1)
+extra gold: SELECT T1.name ,  T2.date_of_treatment FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id WHERE T1.breed_code  =  ( SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) ASC LIMIT 1 )
+
+easy pred: SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Asia';
+easy gold: SELECT count(*) FROM country WHERE continent  =  "Asia"
+
+easy pred: SELECT COUNT (DISTINCT country.Name) FROM country JOIN city ON country.Code  =  city.CountryCode WHERE country.Continent  =  'Asia';
+easy gold: SELECT count(*) FROM country WHERE continent  =  "Asia"
+
+easy pred: SELECT age FROM Dogs ORDER BY age DESC LIMIT 1
+easy gold: SELECT max(age) FROM Dogs
+
+medium pred: SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY count(*) DESC
+medium gold: SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC
+
+medium pred: SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Europe' AND country.Population  =  80000;
+medium gold: SELECT Name FROM country WHERE continent  =  "Europe" AND Population  =  "80000"
+
+easy pred: SELECT charge_amount FROM Charges ORDER BY charge_amount DESC LIMIT 1
+easy gold: SELECT max(charge_amount) FROM Charges
+
+medium pred: SELECT country.Name FROM country JOIN city ON country.Code  =  city.CountryCode GROUP BY country.Name ORDER BY count(*) ASC LIMIT 3
+medium gold: SELECT Name FROM country ORDER BY Population ASC LIMIT 3
+
+                     easy                 medium               hard                 extra                all                 
+count                190                  186                  13                   3                    392                 
+=====================   EXECUTION ACCURACY     =====================
+execution            0.900                0.833                0.769                0.000                0.857               
+
+====================== EXACT MATCHING ACCURACY =====================
+exact match          0.863                0.817                0.846                0.000                0.834               
+
+---------------------PARTIAL MATCHING ACCURACY----------------------
+select               0.926                0.973                1.000                1.000                0.951               
+select(no AGG)       0.947                0.984                1.000                1.000                0.967               
+where                0.908                0.920                0.333                0.000                0.898               
+where(no OP)         0.908                0.920                0.333                1.000                0.904               
+group(no Having)     1.000                0.905                1.000                1.000                0.932               
+group                1.000                0.905                1.000                0.000                0.898               
+order                0.800                0.780                1.000                1.000                0.821               
+and/or               1.000                1.000                1.000                1.000                1.000               
+IUEN                 0.000                0.000                0.000                0.000                0.000               
+keywords             0.966                0.925                0.846                1.000                0.940               
+---------------------- PARTIAL MATCHING RECALL ----------------------
+select               0.921                0.962                1.000                1.000                0.944               
+select(no AGG)       0.942                0.973                1.000                1.000                0.959               
+where                0.888                0.932                0.333                0.000                0.892               
+where(no OP)         0.888                0.932                0.333                1.000                0.898               
+group(no Having)     1.000                0.974                1.000                1.000                0.982               
+group                1.000                0.974                1.000                0.000                0.946               
+order                0.909                0.762                0.833                1.000                0.821               
+and/or               0.989                1.000                0.846                1.000                0.990               
+IUEN                 0.000                0.000                0.000                0.000                0.000               
+keywords             0.983                0.919                0.846                1.000                0.943               
+---------------------- PARTIAL MATCHING F1 --------------------------
+select               0.923                0.968                1.000                1.000                0.948               
+select(no AGG)       0.945                0.978                1.000                1.000                0.963               
+where                0.898                0.926                0.333                1.000                0.895               
+where(no OP)         0.898                0.926                0.333                1.000                0.901               
+group(no Having)     1.000                0.938                1.000                1.000                0.957               
+group                1.000                0.938                1.000                1.000                0.922               
+order                0.851                0.771                0.909                1.000                0.821               
+and/or               0.995                1.000                0.917                1.000                0.995               
+IUEN                 1.000                1.000                1.000                1.000                1.000               
+keywords             0.974                0.922                0.846                1.000                0.941               

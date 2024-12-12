@@ -1,4 +1,4 @@
-import json
+import pandas as pd
 
 from typing import Dict, List
 
@@ -21,22 +21,22 @@ Given the database schema, here is the SQL query that answers [QUESTION]{questio
 """
 
 
-def build_prompt(query, schemas) -> str:
+def build_prompt(query) -> str:
     """
     Generate Text2SQL prompt containing database schema and natural language query
 
     TODO: make this prompt customizable
     """
     question = query["question"]
-    schema = schemas[query["database"]]
+    schema = query["schema"]
     question_prompt = prompt.format(question=question, schema=schema)
     return question_prompt
 
 
 class SpiderDataset(Dataset):
-    def __init__(self, tokenizer, sql_queries, schemas) -> None:
+    def __init__(self, tokenizer, sql_queries) -> None:
         super().__init__()
-        prompts = [build_prompt(query, schemas) for query in sql_queries]
+        prompts = [build_prompt(query) for query in sql_queries]
         self.encodings = tokenizer(
             prompts, truncation=True, padding=True, max_length=4096, return_tensors="pt"
         )
@@ -105,48 +105,53 @@ def parse_spider_schemas(schema_path) -> Dict[str, str]:
     return databases
 
 
-def parse_spider_queries(query_path) -> List[Dict[str, str]]:
+def parse_spider_queries(query_path, classification = None) -> List[Dict[str, str]]:
     queries = []
 
-    with open(query_path) as f:
-        data = json.loads(f.read())
+    df = pd.read_json(query_path)
+    
+    if classification is not None:
+        df = df[df["classification"] == classification]
 
-        for sample in data:
-            queries.append(
-                {
-                    "database": sample["db_id"],
-                    "question": sample["question"],
-                    "sql": sample["query"],
-                }
-            )
+    for _, row in df.iterrows():
+        queries.append(
+            {
+                "database": row["db_id"],
+                "schema": row["filtered_schema"],
+                "question": row["question"],
+                "sql": row["gold_sql"]
+            }
+        )
 
     return queries
 
 
-def get_spider_dataset(tokenizer, json_path, schema_path) -> SpiderDataset:
+def get_spider_dataset(tokenizer, json_path, classification=None, schema_path=None) -> SpiderDataset:
 
     # Parse database schema
-    db_schema_str = parse_spider_schemas(schema_path)
+    #db_schema_str = parse_spider_schemas(schema_path)
 
     # Parse spider queries
-    queries = parse_spider_queries(json_path)
+    queries = parse_spider_queries(json_path, classification)
 
-    dataset = SpiderDataset(tokenizer, queries, db_schema_str)
+    dataset = SpiderDataset(tokenizer, queries)
 
     return dataset
 
 
-def get_spider_devset(tokenizer):
+def get_spider_devset(tokenizer, classification=None):
     return get_spider_dataset(
         tokenizer,
-        json_path="./benchmarks/spider_data/dev.json",
-        schema_path="./benchmarks/spider_data/tables.json",
+        json_path="./src/val.json",
+	classification=classification
+        #schema_path="./benchmarks/spider_data/tables.json",
     )
 
 
-def get_spider_testset(tokenizer):
+def get_spider_testset(tokenizer, classification=None):
     return get_spider_dataset(
         tokenizer,
-        json_path="./benchmarks/spider_data/test.json",
-        schema_path="./benchmarks/spider_data/test_tables.json",
+        json_path="./src/test.json",
+	classification=classification
+        #schema_path="./benchmarks/spider_data/test_tables.json",
     )

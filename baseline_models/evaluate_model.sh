@@ -5,7 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
-#SBATCH --gpus-per-task=a40:1
+#SBATCH --gpus-per-task=l40s:1
 #SBATCH --mem=16G
 #SBATCH --time=2:00:00
 
@@ -50,9 +50,12 @@ else
 fi
 
 # Run benchmark
+cat gold_query-EASY.txt gold_query-NON-NESTED.txt gold_query-NESTED.txt > gold_query-ALL.txt
+cat generated-EASY.txt generated-NON-NESTED.txt generated-NESTED.txt > generated-ALL.txt
+
 python ./benchmarks/test-suite-sql-eval/evaluation.py \
-  --gold gold_query.txt \
-  --pred generated.txt \
+  --gold gold_query-ALL.txt \
+  --pred generated-ALL.txt \
   --db ./benchmarks/spider_data/database \
   --table ./benchmarks/spider_data/tables.json \
   --etype all 

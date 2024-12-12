@@ -1,0 +1,557 @@
+SELECT lowest_point FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT population FROM city WHERE population  >  150000 AND state_name  =  "wisconsin";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT t2.population FROM state AS t2 JOIN border_info AS t1 ON t2.state_name  =  t1.border WHERE t1.state_name  =  "texas";	geo
+SELECT population FROM city WHERE city_name  =  "seattle" AND state_name  =  "washington";	geo
+SELECT river_name FROM river WHERE LENGTH  >  750 AND traverse  =  "illinois";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT COUNT ( city_name ) FROM city;	geo
+SELECT highest_point FROM highlow WHERE state_name IN ( SELECT state_name FROM state WHERE capital  =  "des moines" );	geo
+SELECT river_name FROM river GROUP BY ( river_name ) ORDER BY COUNT ( DISTINCT traverse ) DESC LIMIT 1;	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT lowest_point FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT COUNT ( river_name ) FROM river WHERE traverse  =  "idaho";	geo
+SELECT population FROM city WHERE population  >  150000 AND state_name  =  "wisconsin";	geo
+SELECT city_name FROM city WHERE population  >  150000;	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river WHERE traverse  =  "texas" ) AND traverse  =  "texas";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT river_name FROM river GROUP BY ( river_name ) ORDER BY COUNT ( DISTINCT traverse ) DESC LIMIT 1;	geo
+SELECT mountain_name FROM mountain WHERE mountain_altitude  =  ( SELECT MAX ( mountain_altitude ) FROM mountain );	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT lowest_point FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT river_name FROM river WHERE LENGTH  >  750 AND traverse  =  "illinois";	geo
+SELECT highest_point FROM highlow WHERE state_name IN ( SELECT border FROM border_info WHERE state_name  =  "mississippi" );	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT river_name FROM river WHERE LENGTH  >  750 AND traverse  =  "illinois";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT highest_elevation FROM highlow WHERE state_name  =  "delaware";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river WHERE traverse  =  "texas" ) AND traverse  =  "texas";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT COUNT ( city_name ) FROM city;	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name IN ( SELECT traverse FROM river WHERE LENGTH  >  750 AND river_name  =  "mississippi" );	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT MAX ( highest_elevation ) FROM highlow;	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT population FROM city WHERE population  >  150000 AND state_name  =  "wisconsin";	geo
+SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT COUNT ( river_name ) FROM river WHERE traverse  =  "idaho";	geo
+SELECT city_name FROM city WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river WHERE traverse  =  "texas" ) AND traverse  =  "texas";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT city_name FROM city WHERE population  >  150000;	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT t2.capital FROM state AS t2 JOIN border_info AS t1 ON t2.state_name  =  t1.border WHERE t1.state_name  =  "texas";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT highest_point FROM highlow WHERE state_name  =  "texas";	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT MAX ( highest_elevation ) FROM highlow;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT COUNT ( river_name ) FROM river WHERE traverse  =  "idaho";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT border FROM border_info WHERE state_name  =  "kentucky";	geo
+SELECT mountain_name FROM mountain WHERE mountain_altitude  =  ( SELECT MAX ( mountain_altitude ) FROM mountain );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT city_name FROM city WHERE population  >  150000 AND state_name  =  "kansas";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT highest_elevation FROM highlow WHERE highest_point  =  "guadalupe peak";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT highest_point FROM highlow WHERE state_name  =  "texas";	geo
+SELECT lowest_elevation FROM highlow WHERE state_name  =  "pennsylvania";	geo
+SELECT city_name FROM city WHERE state_name  =  "texas";	geo
+SELECT lake_name FROM lake WHERE area  >  750 AND state_name  =  "michigan";	geo
+SELECT traverse FROM river WHERE river_name  =  "ohio";	geo
+SELECT highest_point FROM highlow WHERE state_name  =  "texas";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river WHERE traverse  =  "texas" ) AND traverse  =  "texas";	geo
+SELECT population FROM state WHERE state_name IN ( SELECT traverse FROM river WHERE river_name  =  "mississippi" );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT river_name FROM river WHERE LENGTH  >  750 AND traverse  =  "illinois";	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT state_name FROM city WHERE city_name  =  "springfield";	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t3.citedpaperid  ,  COUNT ( t3.citedpaperid ) FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2010 AND t2.venuename  =  "EMNLP" GROUP BY t3.citedpaperid ORDER BY COUNT ( t3.citedpaperid ) DESC;	scholar
+SELECT DISTINCT t1.authorid  ,  t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t5 ON t2.keyphraseid  =  t5.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "brian curless" AND t5.keyphrasename  =  "convolution";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Liwen Xiong" AND t3.year  =  2015;	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT state_name FROM mountain WHERE mountain_name  =  "whitney";	geo
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT city_name FROM city;	geo
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT state_name FROM state WHERE capital  =  "salem";	geo
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT mountain_name FROM mountain WHERE state_name  =  "alaska";	geo
+SELECT DISTINCT t1.keyphrasename  ,  t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "sanjeev arora" ORDER BY t3.year DESC;	scholar
+SELECT country_name FROM state WHERE state_name  =  "massachusetts";	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT state_name FROM mountain WHERE mountain_name  =  "whitney";	geo
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "li dong" AND t3.year  =  2016;	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river WHERE traverse  =  "texas" ) AND traverse  =  "texas";	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t2.paperid ) FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Christopher D. Manning";	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "Parsing" AND t3.year  =  2012 AND t4.venuename  =  "acl";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "subhasis chaudhuri";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "mohammad rastegari" AND t3.journalid  >=  0;	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "Parsing" AND t3.year  =  2012 AND t4.venuename  =  "acl";	scholar
+SELECT DISTINCT COUNT ( t4.paperid )  ,  t3.authorid FROM paperkeyphrase AS t1 JOIN keyphrase AS t2 ON t1.keyphraseid  =  t2.keyphraseid JOIN paper AS t4 ON t4.paperid  =  t1.paperid JOIN writes AS t3 ON t3.paperid  =  t4.paperid WHERE t2.keyphrasename  =  "syntactic parsing" GROUP BY t3.authorid ORDER BY COUNT ( t4.paperid ) DESC;	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t3 JOIN author AS t2 ON t3.authorid  =  t2.authorid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t2.authorname  =  "Peter Mertens" AND t1.authorname  =  "Dina Barbian";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "Parsing" AND t3.year  =  2012 AND t4.venuename  =  "acl";	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "parsing" AND t3.year  =  2014 AND t4.venuename  =  "ACL";	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT traverse FROM river;	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "subhasis chaudhuri";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "subhasis chaudhuri";	scholar
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.datasetname  =  "RGB-D Object Dataset" AND t3.title  =  "Class consistent multi-modal fusion with binary features" AND t3.year  =  2016 AND t4.venuename  =  "CVPR";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Liwen Xiong" AND t3.year  =  2015;	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT LENGTH FROM river WHERE river_name  =  "colorado" AND traverse  =  "texas";	geo
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "parsing" AND t3.year  =  2014 AND t4.venuename  =  "ACL";	scholar
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t2.paperid ) FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Christopher D. Manning";	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT traverse FROM river;	geo
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT paperid FROM paper WHERE title  =  "machine networks for one shot learning";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid  ,  t3.year FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "balakrishnan prabhakaran";	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT DISTINCT paperid FROM paper WHERE title  =  "machine networks for one shot learning";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t1.authorid  ,  t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t5 ON t2.keyphraseid  =  t5.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "brian curless" AND t5.keyphrasename  =  "convolution";	scholar
+SELECT COUNT ( city_name ) FROM city WHERE state_name  =  "texas";	geo
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t3 JOIN author AS t2 ON t3.authorid  =  t2.authorid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t2.authorname  =  "Peter Mertens" AND t1.authorname  =  "Dina Barbian";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT state_name FROM city WHERE population  =  ( SELECT MIN ( population ) FROM city );	geo
+SELECT traverse FROM river WHERE LENGTH  >  750;	geo
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Liwen Xiong" AND t3.year  =  2015;	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t1.authorid  ,  t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t5 ON t2.keyphraseid  =  t5.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "brian curless" AND t5.keyphrasename  =  "convolution";	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2016 AND t3.venuename  =  "acl";	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t1.keyphrasename  =  "TAIL" AND t4.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t5 ON t4.authorid  =  t5.authorid WHERE t5.authorname  =  "Luke Zettlemoyer";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "li dong" AND t3.year  =  2016;	scholar
+SELECT COUNT ( city_name ) FROM city WHERE state_name  =  "texas";	geo
+SELECT state_name FROM city WHERE city_name  =  "austin" AND population  >  150000;	geo
+SELECT DISTINCT t3.venueid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Daniella Coelho";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Liwen Xiong" AND t3.year  =  2015;	scholar
+SELECT MAX ( DISTINCT highest_elevation ) FROM highlow WHERE state_name  =  "texas";	geo
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT DISTINCT t2.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "sharon goldwater";	scholar
+SELECT DISTINCT t2.journalid FROM paper AS t3 JOIN journal AS t2 ON t3.journalid  =  t2.journalid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "linda shapiro";	scholar
+SELECT t1.state  ,  SUM ( t4.count ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id JOIN checkin AS t4 ON t4.business_id  =  t1.business_id WHERE t2.category_name  =  "Italian" AND t3.category_name  =  "Delis" AND t4.day  =  "Sunday" GROUP BY t1.state;	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.rating  =  5 AND t2.category_name  =  "Italian" AND t3.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t2.paperid FROM paperdataset AS t3 JOIN dataset AS t1 ON t3.datasetid  =  t1.datasetid JOIN paper AS t4 ON t4.paperid  =  t3.paperid JOIN writes AS t2 ON t2.paperid  =  t4.paperid WHERE t1.datasetname  =  "ImageNet" GROUP BY t2.paperid;	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT t1.name FROM category AS t3 JOIN business AS t1 ON t3.business_id  =  t1.business_id JOIN category AS t4 ON t4.business_id  =  t1.business_id JOIN neighbourhood AS t2 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Madison" AND t3.category_name  =  "Italian" AND t4.category_name  =  "restaurant" AND t2.neighbourhood_name  =  "Meadowood";	yelp
+SELECT t1.text FROM USER AS t2 JOIN review AS t1 ON t2.user_id  =  t1.user_id WHERE t2.name  =  "Niloofar";	yelp
+SELECT SUM ( t4.count ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id JOIN checkin AS t4 ON t4.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "restaurant" AND t3.category_name  =  "Moroccan";	yelp
+SELECT t3.text FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id WHERE t1.review_count  >  100 AND t2.category_name  =  "Pet Groomers";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT t4.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id JOIN USER AS t4 ON t4.user_id  =  t3.user_id WHERE t1.name  =  "Mesa Grill" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t4.citingpaperid )  ,  t1.keyphraseid  ,  t2.paperid FROM paper AS t2 JOIN cite AS t4 ON t2.paperid  =  t4.citedpaperid JOIN paperkeyphrase AS t1 ON t2.paperid  =  t1.paperid JOIN venue AS t3 ON t3.venueid  =  t2.venueid WHERE t2.year  =  2012 AND t3.venuename  =  "EMNLP-CoNLL" GROUP BY t2.paperid  ,  t1.keyphraseid ORDER BY COUNT ( DISTINCT t4.citingpaperid ) DESC;	scholar
+SELECT t2.text FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Vintner Grill" AND t2.likes  >  9;	yelp
+SELECT DISTINCT t3.paperid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Richard Ladner" AND t4.venuename  =  "chi";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t1.paperid ) FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "ACL";	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t1.rating  >  3 AND t1.review_count  >  30 AND t2.category_name  =  "Bars";	yelp
+SELECT DISTINCT t3.journalid  ,  t4.venueid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Peter Mertens";	scholar
+SELECT DISTINCT t3.paperid  ,  t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" ORDER BY t3.year DESC;	scholar
+SELECT t4.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id JOIN USER AS t4 ON t4.user_id  =  t3.user_id WHERE t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.state  =  "Pennsylvania" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t2.paperid FROM paperkeyphrase AS t5 JOIN keyphrase AS t3 ON t5.keyphraseid  =  t3.keyphraseid JOIN writes AS t4 ON t4.paperid  =  t5.paperid JOIN paper AS t2 ON t4.paperid  =  t2.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid JOIN venue AS t6 ON t6.venueid  =  t2.venueid WHERE t1.authorname  =  "Eric C. Kerrigan" AND t3.keyphrasename  =  "Liquid" AND t6.venuename  =  "Automatica";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t4.citingpaperid )  ,  t3.venueid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "NLP" GROUP BY t3.venueid ORDER BY COUNT ( DISTINCT t4.citingpaperid ) DESC;	scholar
+SELECT DISTINCT t3.journalid  ,  t4.venueid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Peter Mertens";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t1.datasetid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t4.venuename  =  "ACL";	scholar
+SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" GROUP BY t3.year ORDER BY t3.year ASC;	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.state  =  "Texas" AND t2.category_name  =  "Valet Service" AND t3.category_name  =  "restaurant";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "Seafood" AND t3.category_name  =  "restaurant";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "Seafood" AND t3.category_name  =  "restaurant";	yelp
+SELECT t2.text FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Cafe Zinho" AND t1.state  =  "Pennsylvania" AND t2.year  =  2010;	yelp
+SELECT DISTINCT COUNT ( t1.paperid )  ,  t1.year FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "NIPS" GROUP BY t1.year ORDER BY COUNT ( t1.paperid ) DESC;	scholar
+SELECT DISTINCT COUNT ( t2.paperid )  ,  t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "ACL" GROUP BY t1.authorid;	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT DISTINCT t2.paperid FROM paperdataset AS t3 JOIN dataset AS t5 ON t3.datasetid  =  t5.datasetid JOIN paperkeyphrase AS t4 ON t4.paperid  =  t3.paperid JOIN paper AS t2 ON t2.paperid  =  t3.paperid JOIN venue AS t6 ON t6.venueid  =  t2.venueid JOIN keyphrase AS t1 ON t4.keyphraseid  =  t1.keyphraseid WHERE t5.datasetname  =  "Jeopardy! Questions" AND t1.keyphrasename  =  "Parsing" AND t2.year  =  2014 AND t6.venuename  =  "ACL";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT t4.text FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id JOIN review AS t4 ON t4.business_id  =  t1.business_id JOIN USER AS t5 ON t5.user_id  =  t4.user_id WHERE t2.category_name  =  "Italian" AND t3.category_name  =  "category_category_name1" AND t5.name  =  "Michelle";	yelp
+SELECT DISTINCT t2.journalid FROM paper AS t3 JOIN journal AS t2 ON t3.journalid  =  t2.journalid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "linda shapiro";	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT DISTINCT t3.paperid  ,  t3.year FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "jamie callan" ORDER BY t3.year;	scholar
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT SUM ( t4.count ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id JOIN checkin AS t4 ON t4.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "Moroccan" AND t3.category_name  =  "restaurant" AND t4.day  =  "Friday";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t2.datasetid FROM paper AS t3 JOIN paperdataset AS t2 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "jitendra malik";	scholar
+SELECT DISTINCT COUNT ( t2.paperid )  ,  t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "ACL" GROUP BY t1.authorid;	scholar
+SELECT t1.neighbourhood_name FROM category AS t3 JOIN business AS t2 ON t3.business_id  =  t2.business_id JOIN category AS t4 ON t4.business_id  =  t2.business_id JOIN neighbourhood AS t1 ON t1.business_id  =  t2.business_id WHERE t2.city  =  "Madison" AND t3.category_name  =  "Italian" AND t4.category_name  =  "restaurant";	yelp
+SELECT t3.name FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN USER AS t3 ON t3.user_id  =  t2.user_id WHERE t1.name  =  "Barrio Cafe" AND t2.year  =  2015;	yelp
+SELECT DISTINCT t1.authorid FROM writes AS t1 JOIN paper AS t2 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2015;	scholar
+SELECT DISTINCT venueid FROM paper WHERE YEAR  =  2013;	scholar
+SELECT DISTINCT t2.datasetid FROM paper AS t3 JOIN paperdataset AS t2 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "jitendra malik";	scholar
+SELECT t1.neighbourhood_name FROM category AS t3 JOIN business AS t2 ON t3.business_id  =  t2.business_id JOIN neighbourhood AS t1 ON t1.business_id  =  t2.business_id WHERE t2.name  =  "Flat Top Grill" AND t3.category_name  =  "category_category_name0";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t1.paperid ) FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "ACL";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t3.citingpaperid FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "ACL" GROUP BY t3.citingpaperid HAVING COUNT ( DISTINCT t3.citedpaperid )  <  5;	scholar
+SELECT DISTINCT t2.paperid FROM paperdataset AS t3 JOIN dataset AS t1 ON t3.datasetid  =  t1.datasetid JOIN paperkeyphrase AS t2 ON t2.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t2.keyphraseid  =  t4.keyphraseid WHERE t1.datasetname  =  "YAGO" AND t4.keyphrasename  =  "Semantic Data";	scholar
+SELECT DISTINCT t3.venueid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Trophic Cascade";	scholar
+SELECT DISTINCT t1.authorname FROM paperkeyphrase AS t2 JOIN keyphrase AS t4 ON t2.keyphraseid  =  t4.keyphraseid JOIN writes AS t3 ON t3.paperid  =  t2.paperid JOIN author AS t1 ON t3.authorid  =  t1.authorid WHERE t4.keyphrasename LIKE "sensor fusion";	scholar
+SELECT DISTINCT t3.paperid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Richard Ladner" AND t4.venuename  =  "chi";	scholar
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Madison" AND t2.category_name  =  "escape games";	yelp
+SELECT DISTINCT t2.title FROM paperkeyphrase AS t5 JOIN keyphrase AS t3 ON t5.keyphraseid  =  t3.keyphraseid JOIN writes AS t4 ON t4.paperid  =  t5.paperid JOIN paper AS t2 ON t4.paperid  =  t2.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid JOIN venue AS t6 ON t6.venueid  =  t2.venueid WHERE t1.authorname LIKE "Eric C. Kerrigan" AND t3.keyphrasename  =  "Liquid" AND t6.venuename  =  "Automatica";	scholar
+SELECT DISTINCT COUNT ( t1.paperid ) FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "sigir";	scholar
+SELECT DISTINCT t3.paperid  ,  t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" ORDER BY t3.year DESC;	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id JOIN USER AS t4 ON t4.user_id  =  t3.user_id WHERE t2.category_name  =  "Bars" AND t4.name  =  "Patrick";	yelp
+SELECT DISTINCT journalid FROM paper WHERE YEAR  =  2011 GROUP BY journalid;	scholar
+SELECT DISTINCT t3.venueid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Trophic Cascade";	scholar
+SELECT DISTINCT t3.title FROM paperkeyphrase AS t2 JOIN keyphrase AS t5 ON t2.keyphraseid  =  t5.keyphraseid JOIN writes AS t4 ON t4.paperid  =  t2.paperid JOIN paper AS t3 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname LIKE "Ranjit Jhala" AND t5.keyphrasename  =  "Liquid Haskell";	scholar
+SELECT t1.neighbourhood_name FROM neighbourhood AS t1 JOIN business AS t2 ON t1.business_id  =  t2.business_id WHERE t2.city  =  "Madison" GROUP BY t1.neighbourhood_name ORDER BY COUNT ( DISTINCT t2.name ) DESC LIMIT 1;	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "Seafood" AND t3.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t2.paperid FROM paperdataset AS t3 JOIN dataset AS t5 ON t3.datasetid  =  t5.datasetid JOIN paperkeyphrase AS t4 ON t4.paperid  =  t3.paperid JOIN paper AS t2 ON t2.paperid  =  t3.paperid JOIN venue AS t6 ON t6.venueid  =  t2.venueid JOIN keyphrase AS t1 ON t4.keyphraseid  =  t1.keyphraseid WHERE t5.datasetname  =  "Jeopardy! Questions" AND t1.keyphrasename  =  "Parsing" AND t2.year  =  2014 AND t6.venuename  =  "ACL";	scholar
+SELECT business_id FROM business WHERE city  =  "Los Angeles" AND name  =  "Apple Store";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT SUM ( t3.count ) FROM checkin AS t3 JOIN business AS t1 ON t3.business_id  =  t1.business_id JOIN neighbourhood AS t2 ON t2.business_id  =  t1.business_id WHERE t2.neighbourhood_name  =  "Brighton Heights";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.rating  >  3.5 AND t2.category_name  =  "Mexican" AND t3.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id JOIN USER AS t4 ON t4.user_id  =  t3.user_id WHERE t1.rating  >=  3 AND t2.category_name  =  "Bars" AND t4.name  =  "Patrick";	yelp
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT t2.text FROM review AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.rating  =  2.5;	yelp
+SELECT DISTINCT venueid FROM paper WHERE title  =  "Fracture of acrylic bone cement";	scholar
+SELECT DISTINCT COUNT ( t2.paperid )  ,  t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2007 AND t3.venuename  =  "CVPR" GROUP BY t1.authorid ORDER BY COUNT ( t2.paperid ) DESC;	scholar
+SELECT DISTINCT t1.authorid FROM writes AS t1 JOIN paper AS t2 ON t1.paperid  =  t2.paperid WHERE t2.year  =  2015;	scholar
+SELECT t3.name FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN USER AS t3 ON t3.user_id  =  t2.user_id WHERE t1.city  =  "Dallas";	yelp
+SELECT DISTINCT COUNT ( t1.paperid )  ,  t1.year FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "NIPS" GROUP BY t1.year ORDER BY COUNT ( t1.paperid ) DESC;	scholar
+SELECT DISTINCT t2.paperid FROM paper AS t2 JOIN journal AS t1 ON t2.journalid  =  t1.journalid WHERE t1.journalname  =  "Academic radiology" AND t2.year  =  1995;	scholar
+SELECT DISTINCT COUNT ( t1.paperid )  ,  t1.year FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "NIPS" GROUP BY t1.year ORDER BY COUNT ( t1.paperid ) DESC;	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.rating  >  3.5 AND t2.category_name  =  "Bars";	yelp
+SELECT t2.text FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Cafe Zinho" AND t1.state  =  "Texas";	yelp
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Madison" AND t2.category_name  =  "escape games";	yelp
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT t4.day  ,  SUM ( t4.count ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id JOIN checkin AS t4 ON t4.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "Moroccan" AND t3.category_name  =  "restaurant" GROUP BY t4.day;	yelp
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT t1.text FROM USER AS t2 JOIN review AS t1 ON t2.user_id  =  t1.user_id WHERE t1.rating  >  4 AND t2.name  =  "Patrick";	yelp
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.rating  >  3.5 AND t2.category_name  =  "Bars";	yelp
+SELECT DISTINCT t3.paperid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Richard Ladner" AND t4.venuename  =  "chi";	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.rating  >  3.5 AND t2.category_name  =  "Mexican" AND t3.category_name  =  "restaurant";	yelp
+SELECT t2.text FROM review AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Kabob Palace" AND t2.year  =  2014;	yelp
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT DISTINCT t3.paperid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Richard Ladner" AND t4.venuename  =  "chi";	scholar
+SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t5 ON t2.keyphraseid  =  t5.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "Michael Stonebraker" AND t5.keyphrasename  =  "GIS Database";	scholar
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citingpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "Artificial Intelligence" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citingpaperid ) DESC;	scholar
+SELECT DISTINCT t2.datasetid FROM paper AS t3 JOIN paperdataset AS t2 ON t3.paperid  =  t2.paperid JOIN writes AS t4 ON t4.paperid  =  t3.paperid JOIN author AS t1 ON t4.authorid  =  t1.authorid WHERE t1.authorname  =  "jitendra malik";	scholar
+SELECT SUM ( t2.likes ) FROM tip AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN USER AS t3 ON t3.user_id  =  t2.user_id WHERE t1.name  =  "Cafe Zinho" AND t3.name  =  "Niloofar";	yelp
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "NIPS";	scholar
+SELECT DISTINCT t3.year FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Pedro Domingos" GROUP BY t3.year;	scholar
+SELECT t4.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN review AS t3 ON t3.business_id  =  t1.business_id JOIN USER AS t4 ON t4.user_id  =  t3.user_id WHERE t2.category_name  =  "restaurant" AND t3.year  =  2010;	yelp
+SELECT DISTINCT t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t4.venuename  =  "uist";	scholar
+SELECT DISTINCT t3.title FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Donald E Knuth";	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT t1.city FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Taj Mahal" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t2.paperid  ,  t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "ACL";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT COUNT ( t3.paperid )  ,  t3.year FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "ameet soni" GROUP BY t3.year ORDER BY t3.year;	scholar
+SELECT DISTINCT t3.journalid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Temporal Data" GROUP BY t3.journalid;	scholar
+SELECT t2.count FROM checkin AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "Cafe Zinho" AND t2.day  =  "Friday";	yelp
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "character recognition" AND t3.year  <  2010;	scholar
+SELECT DISTINCT COUNT ( t3.paperid )  ,  t1.keyphraseid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN venue AS t4 ON t4.venueid  =  t3.venueid WHERE t3.year  =  2015 AND t4.venuename  =  "NIPS" GROUP BY t1.keyphraseid ORDER BY COUNT ( t3.paperid ) DESC;	scholar
+SELECT DISTINCT t1.authorid FROM venue AS t3 JOIN paper AS t2 ON t3.venueid  =  t2.venueid JOIN writes AS t1 ON t1.paperid  =  t2.paperid WHERE t3.venuename  =  "NIPS";	scholar
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paper AS t3 JOIN journal AS t2 ON t3.journalid  =  t2.journalid JOIN paperkeyphrase AS t1 ON t3.paperid  =  t1.paperid WHERE t2.journalname  =  "Cell" AND t3.year  =  2015;	scholar
+SELECT DISTINCT t3.journalid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "Takashi Matsumoto" GROUP BY t3.journalid;	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.state  =  "Texas" AND t2.category_name  =  "Moroccan" AND t3.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t3.journalid  ,  t4.venueid FROM venue AS t4 JOIN paper AS t3 ON t4.venueid  =  t3.venueid JOIN writes AS t2 ON t2.paperid  =  t3.paperid JOIN author AS t1 ON t2.authorid  =  t1.authorid WHERE t1.authorname  =  "Peter Mertens";	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT AVG ( t3.count )  ,  t3.day FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN checkin AS t3 ON t3.business_id  =  t1.business_id WHERE t1.name  =  "Barrio Cafe" AND t2.category_name  =  "restaurant" GROUP BY t3.day;	yelp
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT t3.title FROM genre AS t2 JOIN classification AS t1 ON t2.gid  =  t1.gid JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t2.genre  =  "Sci-Fi" AND t3.release_year  =  2010;	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "chinese";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" AND t2.year  >  2000;	academic
+SELECT t3.name FROM director AS t3 JOIN directed_by AS t2 ON t3.did  =  t2.did JOIN movie AS t4 ON t4.mid  =  t2.msid JOIN tags AS t5 ON t5.msid  =  t4.mid JOIN keyword AS t1 ON t5.kid  =  t1.id WHERE t1.keyword  =  "nuclear weapons";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.name FROM domain_author AS t3 JOIN author AS t1 ON t3.aid  =  t1.aid JOIN DOMAIN AS t2 ON t2.did  =  t3.did WHERE t1.name  =  "H. V. Jagadish";	academic
+SELECT t1.title FROM written_by AS t3 JOIN movie AS t1 ON t3.msid  =  t1.mid JOIN writer AS t2 ON t3.wid  =  t2.wid WHERE t2.name  =  "Matt Damon";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT SUM ( t2.citation_num ) FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB";	academic
+SELECT COUNT ( DISTINCT t2.title ) FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB";	academic
+SELECT t1.name FROM director AS t3 JOIN directed_by AS t2 ON t3.did  =  t2.did JOIN movie AS t4 ON t4.mid  =  t2.msid JOIN made_by AS t5 ON t4.mid  =  t5.msid JOIN producer AS t1 ON t1.pid  =  t5.pid GROUP BY t1.name ORDER BY COUNT ( DISTINCT t3.name  ) DESC LIMIT 1;	imdb
+SELECT SUM ( t2.citation_num ) FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" AND t2.year  =  2005;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT COUNT ( DISTINCT t3.title  )  ,  t3.release_year FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t2.name  =  "Woody Allen" GROUP BY t3.release_year;	imdb
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "chinese";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t5.title FROM writes AS t3 JOIN author AS t2 ON t3.aid  =  t2.aid JOIN publication AS t5 ON t3.pid  =  t5.pid JOIN writes AS t4 ON t4.pid  =  t5.pid JOIN author AS t1 ON t4.aid  =  t1.aid WHERE t2.name  =  "H. V. Jagadish" AND t1.name  =  "Divesh Srivastava";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" AND t2.year  >  2000;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.name  =  "jamerican cuisine";	restaurants
+SELECT t2.name FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t3.title  =  "James Bond";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "bay area" );	restaurants
+SELECT t1.name FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN tv_series AS t2 ON t2.sid  =  t3.msid WHERE t3.role  =  "Olivia Pope" AND t2.title  =  "Scandal";	imdb
+SELECT t2.name FROM domain_author AS t4 JOIN author AS t1 ON t4.aid  =  t1.aid JOIN DOMAIN AS t3 ON t3.did  =  t4.did JOIN organization AS t2 ON t2.oid  =  t1.oid WHERE t3.name  =  "Databases";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t2.role  =  "Alan Turing" AND t3.title  =  "The Imitation Game";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN movie AS t2 ON t2.mid  =  t3.msid WHERE t1.name  =  "Rowan Atkinson" AND t3.role  =  "Mr. Bean";	imdb
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "palo alto" AND t1.food_type  =  "french";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t1.name  =  "jamerican cuisine";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.citation_num FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB";	academic
+SELECT t2.role FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t3.title  =  "Daddy Long Legs";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd";	restaurants
+SELECT t2.citation_num FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" AND t2.citation_num  >  200 AND t2.year  >  2000;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.name  =  "jamerican cuisine";	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.name  =  "denny";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t4.title FROM publication AS t4 JOIN conference AS t2 ON t4.cid  =  t2.cid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t1.name  =  "H. V. Jagadish" AND t2.name  =  "VLDB";	academic
+SELECT t3.title FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t2.name  =  "Steven Spielberg" AND t3.release_year  >  2006;	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.county  =  "yolo county" AND t1.food_type  =  "italian";	restaurants
+SELECT t2.title FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB";	academic
+SELECT t1.name FROM domain_author AS t4 JOIN author AS t1 ON t4.aid  =  t1.aid JOIN DOMAIN AS t3 ON t3.did  =  t4.did JOIN organization AS t2 ON t2.oid  =  t1.oid WHERE t3.name  =  "Databases" AND t2.name  =  "University of Michigan";	academic
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "bay area" );	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "french";	restaurants
+SELECT t3.title FROM writes AS t2 JOIN author AS t1 ON t2.aid  =  t1.aid JOIN publication AS t3 ON t2.pid  =  t3.pid WHERE t1.name  =  "H. V. Jagadish";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" AND t2.citation_num  >  200;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.genre FROM genre AS t2 JOIN classification AS t1 ON t2.gid  =  t1.gid JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t3.title  =  "Jurassic Park";	imdb
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid WHERE t2.role  =  "Mr. Bean";	imdb
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "chinese";	restaurants
+SELECT t2.name FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t3.title  =  "James Bond";	imdb
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id  WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "region0" ) AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( DISTINCT t1.name ) FROM publication AS t4 JOIN conference AS t2 ON t4.cid  =  t2.cid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "VLDB";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t1.title FROM movie AS t1 JOIN CAST AS t2 ON t1.mid  =  t2.msid WHERE t2.role  =  "Daffy Duck";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( DISTINCT t4.title ) FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid JOIN writes AS t3 ON t3.aid  =  t1.aid JOIN publication AS t4 ON t3.pid  =  t4.pid WHERE t2.name  =  "University of Michigan" AND t4.year  >  2000;	academic
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t3.title FROM tags AS t2 JOIN keyword AS t1 ON t2.kid  =  t1.id JOIN movie AS t3 ON t2.msid  =  t3.mid WHERE t1.keyword  =  "nuclear weapons";	imdb
+SELECT t2.name FROM written_by AS t3 JOIN movie AS t1 ON t3.msid  =  t1.mid JOIN writer AS t2 ON t3.wid  =  t2.wid WHERE t1.title  =  "The Truman Show";	imdb
+SELECT SUM ( t2.citation_num ) FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" AND t2.year  =  2005;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.title FROM genre AS t2 JOIN classification AS t1 ON t2.gid  =  t1.gid JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t2.genre  =  "Sci-Fi" AND t3.release_year  =  2010;	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.name  =  "jamerican cuisine";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN movie AS t2 ON t2.mid  =  t3.msid WHERE t1.name  =  "Robin Wright";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda";	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN movie AS t2 ON t2.mid  =  t3.msid WHERE t1.name  =  "Robin Wright";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( DISTINCT t2.title )  ,  t2.year FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" GROUP BY t2.year;	academic
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id  WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "region0" ) AND t1.rating  >  2.5;	restaurants
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t2.role  =  "Alan Turing" AND t3.title  =  "The Imitation Game";	imdb
+SELECT COUNT ( DISTINCT t2.title ) FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" AND t2.year  <  2000;	academic
+SELECT t5.title FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid JOIN writes AS t4 ON t4.aid  =  t1.aid JOIN publication AS t5 ON t4.pid  =  t5.pid JOIN journal AS t3 ON t5.jid  =  t3.jid WHERE t3.name  =  "PVLDB" AND t2.name  =  "University of Michigan";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda";	restaurants
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "palo alto" AND t1.food_type  =  "french";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t1.name FROM publication AS t4 JOIN journal AS t2 ON t4.jid  =  t2.jid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "PVLDB" AND t4.year  =  2010;	academic
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN tv_series AS t2 ON t2.sid  =  t3.msid WHERE t1.name  =  "Scott Foley";	imdb
+SELECT t2.name FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN tv_series AS t3 ON t3.sid  =  t1.msid WHERE t3.release_year  =  2013 AND t3.title  =  "House of Cards";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.title FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t2.birth_city  =  "Los Angeles";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t1.name FROM review AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t2.month  =  "April" GROUP BY t1.name ORDER BY COUNT ( DISTINCT t2.text ) DESC LIMIT 1;	yelp
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.name  =  "buttercup kitchen";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.name FROM CAST AS t4 JOIN actor AS t1 ON t4.aid  =  t1.aid JOIN movie AS t5 ON t5.mid  =  t4.msid JOIN directed_by AS t2 ON t5.mid  =  t2.msid JOIN director AS t3 ON t3.did  =  t2.did WHERE t1.name  =  "Kate Winslet";	imdb
+SELECT t4.title FROM CAST AS t5 JOIN actor AS t1 ON t5.aid  =  t1.aid JOIN movie AS t4 ON t4.mid  =  t5.msid JOIN directed_by AS t2 ON t4.mid  =  t2.msid JOIN director AS t3 ON t3.did  =  t2.did WHERE t1.name  =  "Taraneh Alidoosti" AND t3.name  =  "Asghar Farhadi";	imdb
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id  WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "region0" ) AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "bay area" );	restaurants
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t1.gender  =  "female" AND t3.title  =  "Saving Private Ryan";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t1.nationality  =  "Canada" AND t3.title  =  "James Bond";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM producer AS t1 JOIN made_by AS t3 ON t1.pid  =  t3.pid JOIN tv_series AS t2 ON t2.sid  =  t3.msid WHERE t1.name  =  "Shonda Rhimes";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id  WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "region0" ) AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( DISTINCT t2.title )  ,  t2.year FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" GROUP BY t2.year;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t4.title FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid JOIN writes AS t3 ON t3.aid  =  t1.aid JOIN publication AS t4 ON t3.pid  =  t4.pid WHERE t2.name  =  "University of Michigan" AND t4.year  >  2000;	academic
+SELECT t2.name FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t3.release_year  =  2015 AND t3.title  =  "Joy";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM LOCATION AS t2 JOIN restaurant AS t1 ON t1.id  =  t2.restaurant_id WHERE t1.city_name IN ( SELECT city_name FROM geographic WHERE region  =  "bay area" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.year  ,  SUM ( t2.citation_num ) FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" GROUP BY t2.year;	academic
+SELECT t3.genre FROM director AS t5 JOIN directed_by AS t2 ON t5.did  =  t2.did JOIN movie AS t4 ON t4.mid  =  t2.msid JOIN classification AS t1 ON t4.mid  =  t1.msid JOIN genre AS t3 ON t3.gid  =  t1.gid WHERE t5.name  =  "Asghar Farhadi";	imdb
+SELECT t5.title FROM organization AS t3 JOIN author AS t1 ON t3.oid  =  t1.oid JOIN writes AS t4 ON t4.aid  =  t1.aid JOIN publication AS t5 ON t4.pid  =  t5.pid JOIN conference AS t2 ON t5.cid  =  t2.cid WHERE t2.name  =  "VLDB" AND t3.name  =  "University of Michigan";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "chinese";	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t5.title FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid JOIN writes AS t4 ON t4.aid  =  t1.aid JOIN publication AS t5 ON t4.pid  =  t5.pid JOIN journal AS t3 ON t5.jid  =  t3.jid WHERE t3.name  =  "PVLDB" AND t2.name  =  "University of Michigan" AND t5.year  >  2000;	academic
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN tv_series AS t2 ON t2.sid  =  t3.msid WHERE t1.name  =  "Scott Foley";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd";	restaurants
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t2.role  =  "Alan Turing" AND t3.title  =  "The Imitation Game";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT SUM ( t2.citation_num ) FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t4.title FROM CAST AS t5 JOIN actor AS t1 ON t5.aid  =  t1.aid JOIN movie AS t4 ON t4.mid  =  t5.msid JOIN directed_by AS t2 ON t4.mid  =  t2.msid JOIN director AS t3 ON t3.did  =  t2.did WHERE t1.name  =  "Taraneh Alidoosti" AND t3.name  =  "Asghar Farhadi";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "bethel island" AND t2.street_name  =  "bethel island rd" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.title FROM movie AS t2 JOIN made_by AS t3 ON t2.mid  =  t3.msid JOIN producer AS t1 ON t1.pid  =  t3.pid JOIN written_by AS t5 ON t5.msid  =  t2.mid JOIN writer AS t4 ON t5.wid  =  t4.wid WHERE t1.name  =  "Woody Allen" AND t4.name  =  "Woody Allen";	imdb
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.name FROM director AS t2 JOIN directed_by AS t1 ON t2.did  =  t1.did JOIN movie AS t3 ON t3.mid  =  t1.msid WHERE t3.title  =  "James Bond";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "french";	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( * ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "palo alto" AND t1.food_type  =  "french";	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t1.name FROM publication AS t4 JOIN journal AS t2 ON t4.jid  =  t2.jid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "PVLDB";	academic
+SELECT t2.title FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" AND t2.citation_num  >  200 AND t2.year  >  2000;	academic
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name WHERE t2.region  =  "bay area" AND t1.food_type  =  "american" );	restaurants
+SELECT t1.name FROM publication AS t4 JOIN journal AS t2 ON t4.jid  =  t2.jid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "PVLDB" AND t4.year  >  2010;	academic
+SELECT t1.name FROM publication AS t4 JOIN conference AS t2 ON t4.cid  =  t2.cid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "VLDB" AND t4.year  =  2002;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT COUNT ( DISTINCT t2.title  ) FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN movie AS t2 ON t2.mid  =  t3.msid WHERE t1.name  =  "Shahab Hosseini";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t2.name FROM written_by AS t3 JOIN movie AS t1 ON t3.msid  =  t1.mid JOIN writer AS t2 ON t3.wid  =  t2.wid WHERE t1.title  =  "The Truman Show";	imdb
+SELECT t1.name FROM publication AS t4 JOIN conference AS t2 ON t4.cid  =  t2.cid JOIN writes AS t3 ON t3.pid  =  t4.pid JOIN author AS t1 ON t3.aid  =  t1.aid WHERE t2.name  =  "VLDB";	academic
+SELECT t1.keyword FROM DOMAIN AS t3 JOIN domain_keyword AS t2 ON t3.did  =  t2.did JOIN keyword AS t1 ON t1.kid  =  t2.kid WHERE t3.name  =  "Databases";	academic
+SELECT t1.name FROM CAST AS t2 JOIN actor AS t1 ON t2.aid  =  t1.aid JOIN movie AS t3 ON t3.mid  =  t2.msid WHERE t3.title  =  "Camp X-Ray";	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" AND t1.rating  =  ( SELECT MAX ( t1.rating ) FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t1.food_type  =  "french" );	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t3.house_number  ,  t1.name FROM restaurant AS t1 JOIN geographic AS t2 ON t1.city_name  =  t2.city_name JOIN LOCATION AS t3 ON t1.id  =  t3.restaurant_id WHERE t2.region  =  "yosemite and mono lake area" AND t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "san francisco" AND t2.street_name  =  "buchanan" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT t2.year  ,  SUM ( t2.citation_num ) FROM publication AS t2 JOIN conference AS t1 ON t2.cid  =  t1.cid WHERE t1.name  =  "VLDB" GROUP BY t2.year;	academic

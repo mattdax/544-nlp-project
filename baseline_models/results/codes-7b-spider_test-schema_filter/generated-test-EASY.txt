@@ -1,0 +1,392 @@
+SELECT Airline FROM airlines WHERE Abbreviation  =  'UAL'
+SELECT count(*) FROM cars_data WHERE Horsepower  >  150
+SELECT avg(Age),  min(Age),  max(Age) FROM singer WHERE Country  =  "France"
+SELECT avg(Weight),  YEAR FROM cars_data GROUP BY YEAR
+SELECT singer.Name,  singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID JOIN concert ON singer_in_concert.concert_ID  =  concert.concert_ID WHERE concert.Theme LIKE "%Hey%"
+SELECT DISTINCT singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID WHERE singer.Age  >  20
+SELECT count(*) FROM cars_data WHERE YEAR  =  1980
+SELECT avg(Horsepower) FROM cars_data WHERE YEAR  <  1980
+SELECT Airline,  Abbreviation FROM airlines WHERE Country  =  'USA'
+SELECT count(*) FROM countries
+SELECT avg(Capacity),  max(Capacity) FROM stadium
+SELECT count(*) FROM flights JOIN airlines ON flights.Airline  =  airlines.Airline WHERE airlines.Airline  =  'Jetblue Airways'
+SELECT count(*),  Country FROM singer GROUP BY Country
+SELECT AirportName FROM airports WHERE City  =  'Aberdeen'
+SELECT Horsepower FROM cars_data ORDER BY Accelerate DESC LIMIT 1
+SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015
+SELECT FlightNo FROM flights WHERE Airline  =  "United Airlines"
+SELECT count(*) FROM airlines WHERE Country  =  'USA'
+SELECT count(*) FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline WHERE airlines.Airline  =  'United' AND flights.SourceAirport  =  'AHD'
+SELECT count(*) FROM singer
+SELECT count(*) FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline WHERE airlines.Airline  =  'JetBlue Airways'
+SELECT count(*) FROM Pets WHERE weight  >  10
+SELECT count(*) FROM countries
+SELECT count(*) FROM cars_data WHERE Cylinders  >  4
+SELECT flights.FlightNo FROM flights JOIN airlines ON flights.Airline  =  airlines.Airline WHERE airlines.Airline  =  'United Airlines'
+SELECT PetType,  avg(pet_age),  max(pet_age) FROM Pets GROUP BY PetType
+SELECT PetType,  weight FROM Pets ORDER BY pet_age ASC LIMIT 1
+SELECT count(*) FROM airlines
+SELECT count(DISTINCT PetType) FROM Pets
+SELECT Name,  Country,  Age FROM singer ORDER BY Age DESC
+SELECT min(Weight) FROM cars_data WHERE Cylinders  =  8 AND YEAR  =  1974
+SELECT min(Weight) FROM cars_data WHERE Cylinders  =  8 AND YEAR  =  1974
+SELECT count(DISTINCT PetType) FROM Pets
+SELECT count(*) FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE airports.AirportName  =  'APG'
+SELECT avg(Weight),  YEAR FROM cars_data GROUP BY YEAR
+SELECT airlines.Airline FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline GROUP BY flights.Airline ORDER BY count(*) DESC LIMIT 1
+SELECT AirportName FROM airports WHERE AirportCode  =  'AKO'
+SELECT count(*) FROM cars_data WHERE Cylinders  >  6
+SELECT PetID,  weight FROM Pets WHERE pet_age  >  1
+SELECT City,  Country FROM airports WHERE AirportName  =  'Alton'
+SELECT LOCATION,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000
+SELECT count(*) FROM singer
+SELECT PetType,  avg(weight) FROM Pets GROUP BY PetType
+SELECT AirportName FROM airports WHERE AirportCode  =  'AKO'
+SELECT airlines.Airline FROM airlines JOIN flights ON airlines.Airline  =  flights.Airline GROUP BY flights.Airline ORDER BY count(*) DESC LIMIT 1
+SELECT count(*) FROM airlines
+SELECT Abbreviation FROM airlines WHERE Airline  =  "JetBlue Airways"
+SELECT count(*) FROM airports
+SELECT Airline,  Abbreviation FROM airlines WHERE Country  =  'USA'
+SELECT count(*) FROM concert WHERE YEAR  =  2014 OR YEAR  =  2015
+SELECT count(*) FROM airlines WHERE Country  =  'USA'
+SELECT Name,  Country,  Age FROM singer ORDER BY Age DESC
+SELECT max(Accelerate) FROM cars_data
+SELECT DISTINCT Country FROM singer WHERE Age  >  20
+SELECT count(*) FROM airports
+SELECT Year FROM cars_data WHERE Weight BETWEEN 3000 AND 4000
+SELECT PetType,  max(weight) FROM Pets GROUP BY PetType
+SELECT Abbreviation FROM airlines WHERE Airline  =  'Jetblue Airways'
+SELECT avg(MPG) FROM cars_data WHERE Cylinders  =  4
+SELECT count(*) FROM cars_data WHERE Horsepower  >  150
+SELECT count(DISTINCT Continent) FROM continents
+SELECT AirportName FROM airports WHERE City  =  'Aberdeen'
+SELECT airports.City,  airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.DestAirport WHERE airports.AirportName  =  'Alton'
+SELECT Country,  count(*) FROM singer GROUP BY Country
+SELECT AirportCode,  AirportName FROM airports WHERE City  =  'Anthony'
+SELECT max(Capacity),  avg(Average) FROM stadium
+SELECT count(*) FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE airports.AirportName  =  "APG"
+SELECT avg(MPG) FROM cars_data WHERE Cylinders  =  4
+SELECT stadium.Name,  stadium.Capacity FROM stadium JOIN concert ON stadium.Stadium_ID  =  concert.Stadium_ID GROUP BY concert.Stadium_ID ORDER BY avg(concert.Attendance) DESC LIMIT 1
+SELECT singer.Name,  singer.Country FROM singer JOIN singer_in_concert ON singer.Singer_ID  =  singer_in_concert.Singer_ID JOIN concert ON singer_in_concert.concert_ID  =  concert.concert_ID WHERE concert.Theme LIKE "%Hey%"
+SELECT PetID,  weight FROM Pets WHERE pet_age  >  1
+SELECT LOCATION,  Name FROM stadium WHERE Capacity BETWEEN 5000 AND 10000
+SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1
+SELECT count(*) FROM continents
+SELECT max(weight),  PetType FROM Pets GROUP BY PetType
+SELECT avg(Horsepower) FROM cars_data WHERE YEAR  <  1980
+SELECT count(*) FROM flights
+SELECT max(Accelerate),  Cylinders FROM cars_data GROUP BY Cylinders
+SELECT count(*) FROM flights
+SELECT Airline FROM airlines WHERE Abbreviation  =  'UAL'
+SELECT airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE flights.Airline  =  "JetBlue Airways"
+SELECT count(*) FROM cars_data WHERE Cylinders  >  6
+SELECT airports.Country FROM airports JOIN flights ON airports.AirportCode  =  flights.SourceAirport WHERE flights.Airline  =  'Jetblue Airways'
+SELECT count(*) FROM cars_data WHERE Cylinders  >  4
+SELECT count(*) FROM Pets WHERE weight  >  10
+SELECT avg(Age),  min(Age),  max(Age) FROM singer WHERE Country  =  "France"
+SELECT Horsepower FROM cars_data ORDER BY Accelerate DESC LIMIT 1
+SELECT AirportCode,  AirportName FROM airports WHERE City  =  'Anthony'
+SELECT Open_Year,  Num_of_Staff FROM museum WHERE Name  =  "Plaza Museum"
+SELECT first_name,  last_name FROM players ORDER BY birth_date
+SELECT count(*) FROM visitor WHERE Age  <  30
+SELECT sum(tours),  ranking_date FROM rankings GROUP BY ranking_date
+SELECT Hometown FROM teacher ORDER BY Age ASC LIMIT 1
+SELECT first_name,  country_code FROM players ORDER BY birth_date DESC LIMIT 1
+SELECT count(*) FROM employee
+SELECT DISTINCT Template_Type_Code FROM Templates
+SELECT first_name,  birth_date FROM players WHERE country_code  =  "USA"
+SELECT first_name,  last_name FROM players WHERE hand  =  'L' ORDER BY birth_date
+SELECT Template_Type_Code,  Template_Type_Description FROM Ref_Template_Types
+SELECT count(*) FROM teacher
+SELECT DISTINCT Template_Type_Code FROM Templates
+SELECT min(Number_products),  max(Number_products) FROM shop
+SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1
+SELECT Name FROM teacher WHERE Age  =  32 OR Age  =  33
+SELECT City FROM employee WHERE Age  <  30 GROUP BY City HAVING count(*)  >  1
+SELECT Template_Type_Description FROM Ref_Template_Types WHERE Template_Type_Code  =  "AD"
+SELECT museum.Museum_ID,  museum.Name FROM museum JOIN visit ON museum.Museum_ID  =  visit.Museum_ID GROUP BY museum.Museum_ID ORDER BY sum(visit.Num_of_Ticket) DESC LIMIT 1
+SELECT count(*) FROM Documents
+SELECT course_description FROM Courses WHERE course_name  =  "math"
+SELECT count(*) FROM ship WHERE disposition_of_ship  =  'Captured'
+SELECT count(*) FROM Templates
+SELECT employee.Name,  employee.Age,  employee.City,  hiring.Start_from,  hiring.Is_full_time,  shop.Name FROM hiring JOIN employee ON hiring.Employee_ID  =  employee.Employee_ID JOIN shop ON hiring.Shop_ID  =  shop.Shop_ID
+SELECT count(DISTINCT LOCATION) FROM shop
+SELECT count(*) FROM players
+SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50
+SELECT Name,  LOCATION,  District FROM shop ORDER BY Number_products DESC
+SELECT Name,  LOCATION,  District FROM shop ORDER BY Number_products DESC
+SELECT Name FROM teacher WHERE Age  =  32 OR Age  =  33
+SELECT Version_Number,  Template_Type_Code FROM Templates ORDER BY Version_Number ASC LIMIT 1
+SELECT first_name,  birth_date FROM players WHERE country_code  =  "USA"
+SELECT Name FROM teacher WHERE Hometown!= "Little Lever Urban District"
+SELECT first_name,  country_code FROM players ORDER BY birth_date DESC LIMIT 1
+SELECT Version_Number,  Template_Type_Code FROM Templates WHERE Version_Number  >  5
+SELECT line_1,  line_2 FROM Addresses
+SELECT Name FROM visitor WHERE Level_of_membership  >  4 ORDER BY Level_of_membership DESC
+SELECT count(*) FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016
+SELECT Hometown,  count(*) FROM teacher GROUP BY Hometown
+SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10
+SELECT count(*),  YEAR FROM matches GROUP BY YEAR
+SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10
+SELECT DISTINCT battle.name FROM battle JOIN ship ON battle.id  =  ship.lost_in_battle JOIN death ON death.caused_by_ship_id  =  ship.id WHERE battle.bulgarian_commander  =  "Kaloyan" AND battle.latin_commander  =  "Baldwin I"
+SELECT sum(Bonus) FROM evaluation
+SELECT count(*) FROM employee
+SELECT count(*) FROM Templates WHERE Template_Type_Code  =  "CV"
+SELECT count(*) FROM Documents
+SELECT Document_ID,  Document_Name,  Document_Description FROM Documents
+SELECT Name FROM employee ORDER BY Age ASC
+SELECT count(*) FROM Courses
+SELECT country_code,  count(*) FROM players GROUP BY country_code
+SELECT Documents.Document_Name,  Templates.Template_ID FROM Templates JOIN Documents ON Templates.Template_ID  =  Documents.Template_ID WHERE Documents.Document_Description LIKE "%w%"
+SELECT sum(Bonus) FROM evaluation
+SELECT Template_Type_Code FROM Ref_Template_Types WHERE Template_Type_Description  =  "Book"
+SELECT count(*),  employee.City FROM employee JOIN hiring ON employee.Employee_ID  =  hiring.Employee_ID GROUP BY employee.City
+SELECT Template_Type_Description FROM Ref_Template_Types WHERE Template_Type_Code  =  "AD"
+SELECT Template_ID,  Version_Number,  Template_Type_Code FROM Templates
+SELECT Hometown,  Age FROM teacher
+SELECT count(*),  employee.City FROM employee JOIN hiring ON employee.Employee_ID  =  hiring.Employee_ID GROUP BY employee.City
+SELECT count(*) FROM matches
+SELECT ranking_date,  sum(tours) FROM rankings GROUP BY ranking_date
+SELECT Templates.Version_Number,  Templates.Template_Type_Code FROM Templates JOIN Ref_Template_Types ON Templates.Template_Type_Code  =  Ref_Template_Types.Template_Type_Code WHERE Templates.Version_Number  >  5
+SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1
+SELECT count(DISTINCT country_code) FROM players
+SELECT Documents.Document_Name,  Documents.Template_ID FROM Documents JOIN Paragraphs ON Documents.Document_ID  =  Paragraphs.Document_ID WHERE Paragraphs.Paragraph_Text LIKE "%w%"
+SELECT country_code FROM players GROUP BY country_code ORDER BY count(*) DESC LIMIT 1
+SELECT Templates.Template_Type_Code,  min(Templates.Version_Number) FROM Templates JOIN Documents ON Templates.Template_ID  =  Documents.Template_ID GROUP BY Templates.Template_Type_Code
+SELECT * FROM hiring
+SELECT line_1,  line_2 FROM Addresses
+SELECT count(*) FROM players
+SELECT Hometown FROM teacher GROUP BY Hometown ORDER BY count(*) DESC LIMIT 1
+SELECT country_code,  count(*) FROM players GROUP BY country_code
+SELECT count(*),  players.hand FROM players JOIN matches ON players.player_id  =  matches.winner_id OR players.player_id  =  matches.loser_id GROUP BY players.hand
+SELECT battle.name,  battle.date,  battle.result FROM battle
+SELECT count(*) FROM Paragraphs
+SELECT count(DISTINCT RESULT) FROM battle
+SELECT Document_ID,  Document_Name,  Document_Description FROM Documents
+SELECT count(*) FROM Paragraphs
+SELECT name,  RESULT FROM battle WHERE bulgarian_commander!= "Boril"
+SELECT count(*) FROM Courses
+SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50
+SELECT count(DISTINCT LOCATION) FROM shop
+SELECT first_name,  last_name FROM players WHERE hand  =  'L' ORDER BY birth_date
+SELECT first_name,  last_name FROM players ORDER BY birth_date
+SELECT Hometown,  count(*) FROM teacher GROUP BY Hometown
+SELECT Name FROM teacher ORDER BY Age ASC
+SELECT zip_postcode FROM Addresses WHERE city  =  "Port Chelsea"
+SELECT Document_ID,  Template_ID,  Document_Description FROM Documents WHERE Document_Name  =  "Robbin CV"
+SELECT count(*) FROM museum WHERE Open_Year  >  2013 OR Open_Year  <  2008
+SELECT Name FROM teacher ORDER BY Age ASC
+SELECT count(*),  players.hand FROM players JOIN matches ON players.player_id  =  matches.winner_id OR players.player_id  =  matches.loser_id GROUP BY players.hand
+SELECT count(DISTINCT loser_name) FROM matches
+SELECT count(DISTINCT country_code) FROM players
+SELECT count(*) FROM teacher
+SELECT Name FROM teacher WHERE Hometown!= "Little Lever Urban District"
+SELECT count(*) FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016
+SELECT min(Number_products),  max(Number_products) FROM shop
+SELECT Templates.Template_ID,  Templates.Version_Number,  Templates.Template_Type_Code FROM Templates JOIN Ref_Template_Types ON Templates.Template_Type_Code  =  Ref_Template_Types.Template_Type_Code
+SELECT Hometown,  Age FROM teacher
+SELECT name,  tonnage FROM ship ORDER BY name DESC
+SELECT avg(Num_of_Ticket),  max(Num_of_Ticket) FROM visit
+SELECT count(*),  LOCATION FROM shop GROUP BY LOCATION
+SELECT avg(Num_of_Staff) FROM museum WHERE Open_Year  <  2009
+SELECT count(*),  YEAR FROM matches GROUP BY YEAR
+SELECT Hometown FROM teacher GROUP BY Hometown ORDER BY count(*) DESC LIMIT 1
+SELECT count(*) FROM matches
+SELECT count(*),  LOCATION FROM shop GROUP BY LOCATION
+SELECT visitor.Name,  visitor.Level_of_membership FROM visitor JOIN visit ON visitor.ID  =  visit.visitor_ID WHERE visitor.Level_of_membership  >  4 ORDER BY visitor.Age
+SELECT count(*) FROM Templates
+SELECT Name FROM employee ORDER BY Age ASC
+SELECT Template_Type_Code,  Template_Type_Description FROM Ref_Template_Types
+SELECT zip_postcode FROM Addresses WHERE city  =  "Port Chelsea"
+SELECT min(Share),  max(Share) FROM TV_series
+SELECT transcript_date,  other_details FROM Transcripts ORDER BY transcript_date ASC LIMIT 1
+SELECT Nationality,  count(*) FROM people GROUP BY Nationality
+SELECT Final_Table_Made,  Best_Finish FROM poker_player
+SELECT count(*) FROM Cartoon WHERE Written_by  =  "Joseph Kuhr"
+SELECT transcript_date,  other_details FROM Transcripts ORDER BY transcript_date ASC LIMIT 1
+SELECT count(*) FROM Transcripts
+SELECT section_name FROM Sections ORDER BY section_name DESC
+SELECT Name FROM country WHERE IndepYear  >  1950
+SELECT first_name,  middle_name,  last_name FROM Students ORDER BY date_first_registered ASC LIMIT 1
+SELECT other_student_details FROM Students ORDER BY last_name DESC
+SELECT Title FROM Cartoon WHERE Directed_by  =  "Ben Jones" OR Directed_by  =  "Brandon Vietti"
+SELECT TV_Channel.Package_Option,  TV_series.series_name FROM TV_Channel JOIN TV_series ON TV_Channel.id  =  TV_series.Channel WHERE TV_Channel.Hight_definition_TV  =  1
+SELECT cell_mobile_number FROM Students WHERE first_name  =  "Timmothy" AND last_name  =  "Ward"
+SELECT TV_series.Episode,  TV_series.Rating FROM TV_series ORDER BY Rating DESC LIMIT 3
+SELECT Name FROM people WHERE Nationality!= 'Russia'
+SELECT count(*) FROM VOTES WHERE state  =  "NY" OR state  =  "CA"
+SELECT section_description FROM Sections WHERE section_name  =  "h";
+SELECT section_description FROM Sections WHERE section_name  =  "h"
+SELECT contestant_number,  contestant_name FROM CONTESTANTS ORDER BY contestant_name DESC
+SELECT count(*) FROM Cartoon WHERE Written_by  =  "Joseph Kuhr"
+SELECT section_name FROM Sections ORDER BY section_name DESC
+SELECT SUM (SurfaceArea) FROM country WHERE Continent  =  'Asia' OR Continent  =  'Europe'
+SELECT count(DISTINCT Language) FROM countrylanguage
+SELECT first_name FROM Students WHERE permanent_address_id!= current_address_id
+SELECT Title FROM Cartoon ORDER BY Title
+SELECT Name,  Birth_Date FROM people ORDER BY Name ASC
+SELECT max(Final_Table_Made) FROM poker_player WHERE Earnings  <  200000
+SELECT count(DISTINCT Language) FROM countrylanguage
+SELECT count(*) FROM poker_player
+SELECT Earnings FROM poker_player ORDER BY Earnings DESC
+SELECT max(Share),  min(Share) FROM TV_series
+SELECT Pixel_aspect_ratio_PAR,  Country FROM TV_Channel WHERE Language!= "English"
+SELECT count(DISTINCT Nationality) FROM people
+SELECT avg(Earnings) FROM poker_player
+SELECT count(DISTINCT degree_summary_name) FROM Degree_Programs
+SELECT first_name,  middle_name,  last_name FROM Students WHERE date_left  =  "9999-12-31"
+SELECT Content FROM TV_Channel WHERE series_name  =  "Sky Radio";
+SELECT Cartoon.Title FROM Cartoon JOIN TV_series ON Cartoon.id  =  TV_series.id WHERE Cartoon.Directed_by  =  "Ben Jones"
+SELECT Final_Table_Made,  Best_Finish FROM poker_player
+SELECT Earnings FROM poker_player ORDER BY Earnings DESC
+SELECT Title FROM Cartoon WHERE Directed_by  =  "Ben Jones" OR Directed_by  =  "Brandon Vietti"
+SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  'Spanish' AND country.Continent  =  'Asia' AND country.LifeExpectancy  =  ( SELECT MIN ( country.LifeExpectancy ) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  'Spanish' AND country.Continent  =  'Asia' );
+SELECT Episode FROM TV_series ORDER BY Rating
+SELECT Language,  count(*) FROM TV_Channel GROUP BY Language
+SELECT sum(country.SurfaceArea) FROM country JOIN city ON country.Code  =  city.CountryCode WHERE city.District  =  "Caribbean"
+SELECT Name FROM people WHERE Nationality!= "Russia"
+SELECT transcript_date FROM Transcripts ORDER BY transcript_date DESC LIMIT 1
+SELECT count(*) FROM TV_Channel WHERE Language  =  "English"
+SELECT Cartoon.Title FROM Cartoon JOIN TV_series ON Cartoon.id  =  TV_series.id WHERE Cartoon.Directed_by  =  "Ben Jones"
+SELECT Country,  count(*) FROM TV_Channel GROUP BY Country ORDER BY count(*) DESC LIMIT 1
+SELECT count(DISTINCT Content) FROM TV_Channel
+SELECT Nationality FROM people GROUP BY Nationality ORDER BY count(*) DESC LIMIT 1
+SELECT transcript_date FROM Transcripts ORDER BY transcript_date DESC LIMIT 1
+SELECT Name FROM country WHERE IndepYear  >  1950
+SELECT Directed_by,  count(*) FROM Cartoon GROUP BY Directed_by
+SELECT count(DISTINCT state) FROM AREA_CODE_STATE
+SELECT Weekly_Rank FROM TV_series WHERE Episode  =  "A Love of a Lifetime"
+SELECT avg(transcript_date) FROM Transcripts
+SELECT avg(Earnings) FROM poker_player
+SELECT count(DISTINCT Nationality) FROM people
+SELECT Air_Date FROM TV_series WHERE Episode  =  "A Love of a Lifetime"
+SELECT department_description FROM Departments WHERE department_name LIKE '%computer%'
+SELECT contestant_name FROM CONTESTANTS WHERE contestant_name!= 'Jessie Alloway'
+SELECT count(DISTINCT series_name),  count(DISTINCT Content) FROM TV_Channel
+SELECT Episode FROM TV_series ORDER BY Rating
+SELECT SUM ( city.Population ) FROM city JOIN country ON city.CountryCode  =  country.Code WHERE city.District  =  "Gelderland";
+SELECT Directed_by,  count(*) FROM Cartoon GROUP BY Directed_by
+SELECT TV_Channel.Package_Option,  TV_Channel.series_name FROM TV_Channel JOIN TV_series ON TV_Channel.id  =  TV_series.Channel WHERE TV_Channel.Hight_definition_TV  =  1
+SELECT Title FROM Cartoon ORDER BY Title
+SELECT contestant_name FROM CONTESTANTS WHERE contestant_name LIKE '%Al%'
+SELECT Students.first_name FROM Students JOIN Addresses ON Students.permanent_address_id  =  Addresses.address_id EXCEPT SELECT Students.first_name FROM Students JOIN Addresses ON Students.current_address_id  =  Addresses.address_id
+SELECT Nationality,  count(*) FROM people GROUP BY Nationality
+SELECT population FROM city WHERE District  =  "Gelderland";
+SELECT sum(country.SurfaceArea) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Spanish" AND country.Region  =  "Caribbean";
+SELECT first_name,  middle_name,  last_name FROM Students WHERE date_left  =  "9999-12-31" ORDER BY date_first_registered ASC LIMIT 1
+SELECT count(DISTINCT GovernmentForm) FROM country WHERE Continent  =  'Africa'
+SELECT avg(transcript_date) FROM Transcripts
+SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.GovernmentForm  =  'Republic'
+SELECT section_name,  section_description FROM SECTIONS
+SELECT TV_series.Air_Date FROM TV_series JOIN Cartoon ON TV_series.id  =  Cartoon.Channel WHERE Cartoon.Title  =  "A Love of a Lifetime"
+SELECT TV_series.Episode,  TV_series.Rating FROM TV_series ORDER BY Rating DESC LIMIT 3
+SELECT section_name,  section_description FROM SECTIONS
+SELECT max(area_code),  min(area_code) FROM AREA_CODE_STATE
+SELECT max(Final_Table_Made) FROM poker_player WHERE Earnings  <  200000
+SELECT country.Name,  country.Population,  country.LifeExpectancy FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Chinese" AND country.Region  =  "Asia" AND country.SurfaceArea  =  ( SELECT MAX ( country.SurfaceArea ) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Chinese" AND country.Region  =  "Asia" );
+SELECT Pixel_aspect_ratio_PAR,  Country FROM TV_Channel WHERE Language!= "English"
+SELECT count(DISTINCT degree_summary_name) FROM Degree_Programs
+SELECT count(DISTINCT GovernmentForm) FROM country WHERE Continent  =  'Africa'
+SELECT Language,  count(*) FROM TV_Channel GROUP BY Language
+SELECT department_description FROM Departments WHERE department_name LIKE '%computer%'
+SELECT country.Region,  country.Population FROM country JOIN city ON country.Code  =  city.CountryCode WHERE country.Name  =  "Angola";
+SELECT count(*) FROM TV_Channel WHERE Language  =  "English"
+SELECT first_name,  last_name FROM Students ORDER BY last_name DESC,  first_name DESC
+SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE countrylanguage.Language  =  "Republican" AND country.GovernmentForm  =  "Republic";
+SELECT avg(LifeExpectancy) FROM country WHERE Region  =  "Central Africa";
+SELECT count(*) FROM Transcripts
+SELECT vote_id,  phone_number,  state FROM VOTES
+SELECT avg(LifeExpectancy) FROM country WHERE Region  =  "Central Africa"
+SELECT Name,  Birth_Date FROM people ORDER BY Name ASC
+SELECT Package_Option FROM TV_Channel WHERE series_name  =  "Sky Radio"
+SELECT Content FROM TV_Channel WHERE series_name  =  "Sky Radio"
+SELECT cell_mobile_number FROM Students WHERE first_name  =  "Timmothy" AND last_name  =  "Ward";
+SELECT count(*),  grade FROM Highschooler GROUP BY grade
+SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded DESC
+SELECT charge_type,  charge_amount FROM Charges
+SELECT count(*) FROM singer
+SELECT Name FROM conductor WHERE Nationality!= "USA"
+SELECT role_code,  street,  city,  state FROM Professionals WHERE city LIKE '%West%'
+SELECT Name FROM conductor EXCEPT SELECT conductor.Name FROM conductor JOIN orchestra ON conductor.Conductor_ID  =  orchestra.Conductor_ID WHERE orchestra.Nationality  =  "USA"
+SELECT count(*) FROM Highschooler
+SELECT Name FROM conductor ORDER BY Year_of_Work DESC
+SELECT charge_type,  charge_amount FROM Charges
+SELECT date_arrived,  date_departed FROM Dogs
+SELECT first_name,  last_name,  email_address FROM Owners WHERE state LIKE '%North%'
+SELECT name FROM Highschooler WHERE grade  =  10
+SELECT role_code,  street,  city,  state FROM Professionals WHERE city LIKE '%West%'
+SELECT date_arrived,  date_departed FROM Dogs
+SELECT Name FROM singer ORDER BY Net_Worth_Millions DESC LIMIT 1
+SELECT DISTINCT grade FROM Highschooler GROUP BY grade HAVING count(*)  >=  4
+SELECT avg(Attendance) FROM show
+SELECT Name FROM city WHERE Population BETWEEN 160000 AND 900000
+SELECT Name FROM conductor ORDER BY Age
+SELECT Citizenship FROM singer GROUP BY Citizenship ORDER BY count(*) DESC LIMIT 1
+SELECT Name FROM country ORDER BY Population DESC LIMIT 3
+SELECT conductor.Name FROM conductor JOIN orchestra ON conductor.Conductor_ID  =  orchestra.Conductor_ID GROUP BY conductor.Conductor_ID ORDER BY sum(orchestra.Year_of_Founded) DESC LIMIT 1
+SELECT max(Net_Worth_Millions),  Citizenship FROM singer GROUP BY Citizenship
+SELECT name FROM Highschooler WHERE grade  =  10
+SELECT Name FROM conductor ORDER BY Year_of_Work DESC
+SELECT avg(Attendance) FROM show
+SELECT ID FROM Highschooler WHERE name  =  "Kyle"
+SELECT name,  age,  weight FROM Dogs WHERE abandoned_yn  =  1
+SELECT count(DISTINCT Nationality) FROM conductor
+SELECT email_address FROM Professionals WHERE state  =  "Hawaii" OR state  =  "Wisconsin"
+SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Europe' AND country.Population  =  80000;
+SELECT count(*) FROM orchestra WHERE Major_Record_Format  =  "CD" OR Major_Record_Format  =  "DVD"
+SELECT first_name,  last_name,  email_address FROM Owners WHERE state LIKE '%North%'
+SELECT Name,  SurfaceArea FROM country ORDER BY SurfaceArea DESC LIMIT 5;
+SELECT grade FROM Highschooler
+SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded DESC
+SELECT name,  grade FROM Highschooler
+SELECT Name FROM country ORDER BY Population DESC LIMIT 3
+SELECT email_address,  cell_number,  home_phone FROM Professionals
+SELECT student_id,  count(*) FROM Likes GROUP BY student_id
+SELECT age FROM Dogs ORDER BY age DESC LIMIT 1
+SELECT email_address FROM Professionals WHERE state  =  "Hawaii" OR state  =  "Wisconsin"
+SELECT count(*) FROM conductor
+SELECT count(*) FROM Highschooler WHERE grade  =  9 OR grade  =  10
+SELECT DISTINCT grade FROM Highschooler
+SELECT count(*) FROM orchestra WHERE Major_Record_Format  =  "CD" OR Major_Record_Format  =  "DVD"
+SELECT ID FROM Highschooler WHERE name  =  "Kyle";
+SELECT grade FROM Highschooler WHERE name  =  "Kyle";
+SELECT student_id,  count(*) FROM Likes GROUP BY student_id
+SELECT Name FROM country ORDER BY Population ASC LIMIT 3
+SELECT Name FROM singer WHERE Birth_Year  =  1948 OR Birth_Year  =  1949
+SELECT Dogs.name,  Treatments.date_of_treatment FROM Dogs JOIN Treatments ON Dogs.dog_id  =  Treatments.dog_id WHERE Dogs.breed_code  =  (SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) DESC LIMIT 1)
+SELECT Name FROM singer WHERE Citizenship!= "France"
+SELECT Name FROM singer WHERE Birth_Year  =  1948 OR Birth_Year  =  1949
+SELECT COUNT (DISTINCT country.Name) FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Asia';
+SELECT COUNT (DISTINCT country.Name) FROM country JOIN city ON country.Code  =  city.CountryCode WHERE country.Continent  =  'Asia';
+SELECT Name FROM singer WHERE Citizenship!= "France"
+SELECT cost_of_treatment FROM Treatments ORDER BY date_of_treatment DESC LIMIT 1
+SELECT count(*),  grade FROM Highschooler GROUP BY grade
+SELECT age FROM Dogs ORDER BY age DESC LIMIT 1
+SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY count(*) ASC
+SELECT Name FROM singer ORDER BY Net_Worth_Millions ASC
+SELECT count(*) FROM Highschooler
+SELECT name,  grade FROM Highschooler
+SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY count(*) DESC
+SELECT name,  age,  weight FROM Dogs WHERE abandoned_yn  =  1
+SELECT email_address,  cell_number,  home_phone FROM Professionals
+SELECT count(*) FROM singer
+SELECT grade FROM Highschooler GROUP BY grade ORDER BY count(*) DESC LIMIT 1
+SELECT Citizenship,  count(*) FROM singer GROUP BY Citizenship
+SELECT Birth_Year,  Citizenship FROM singer
+SELECT Name FROM singer ORDER BY Net_Worth_Millions ASC
+SELECT country.Name FROM country JOIN countrylanguage ON country.Code  =  countrylanguage.CountryCode WHERE country.Continent  =  'Europe' AND country.Population  =  80000;
+SELECT sum(Population),  avg(SurfaceArea) FROM country WHERE Continent  =  'North America' AND SurfaceArea  >  3000;
+SELECT avg(age) FROM Dogs
+SELECT count(*) FROM conductor
+SELECT country.Population,  country.Name,  country.HeadOfState FROM country ORDER BY country.SurfaceArea DESC LIMIT 1
+SELECT count(*) FROM Highschooler WHERE grade  =  9 OR grade  =  10
+SELECT avg(age) FROM Dogs
+SELECT Birth_Year,  Citizenship FROM singer
+SELECT Name FROM conductor ORDER BY Age ASC
+SELECT charge_amount FROM Charges ORDER BY charge_amount DESC LIMIT 1
+SELECT count(DISTINCT Nationality) FROM conductor
+SELECT Name FROM city WHERE Population BETWEEN 160000 AND 900000
+SELECT count(*) FROM Other_Available_Features
+SELECT max(Share),  min(Share) FROM performance WHERE TYPE!= "Live final"
+SELECT country.Name FROM country JOIN city ON country.Code  =  city.CountryCode GROUP BY country.Name ORDER BY count(*) ASC LIMIT 3
+SELECT grade FROM Highschooler WHERE name  =  "Kyle"

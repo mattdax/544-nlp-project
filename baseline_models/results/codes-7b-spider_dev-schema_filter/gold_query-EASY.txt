@@ -1,0 +1,343 @@
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT state_name FROM state;	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT state_name FROM city GROUP BY state_name ORDER BY SUM ( population ) LIMIT 1;	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT mountain_name FROM mountain WHERE mountain_altitude  =  ( SELECT MAX ( mountain_altitude ) FROM mountain );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MIN ( population ) FROM city );	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT state_name FROM state;	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT area FROM state WHERE capital  =  "albany";	geo
+SELECT density FROM state WHERE state_name  =  "wyoming";	geo
+SELECT area FROM state WHERE state_name  =  "new mexico";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT SUM ( population ) FROM state;	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT capital FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT MAX ( highest_elevation ) FROM highlow;	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT LENGTH FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT highest_point FROM highlow;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT SUM ( population ) FROM state;	geo
+SELECT highest_elevation FROM highlow WHERE highest_point  =  "guadalupe peak";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT density FROM state;	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT highest_elevation FROM highlow WHERE state_name  =  "delaware";	geo
+SELECT highest_elevation FROM highlow WHERE state_name  =  "delaware";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT COUNT ( river_name ) FROM river WHERE traverse  =  "idaho";	geo
+SELECT COUNT ( river_name ) FROM river WHERE river_name  =  "colorado";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT mountain_name FROM mountain WHERE mountain_altitude  =  ( SELECT MAX ( mountain_altitude ) FROM mountain );	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT highest_elevation FROM highlow WHERE state_name  =  "delaware";	geo
+SELECT SUM ( LENGTH ) FROM river;	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT SUM ( area ) FROM state;	geo
+SELECT COUNT ( city_name ) FROM city;	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT COUNT ( city_name ) FROM city;	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MIN ( population ) FROM city );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT highest_point FROM highlow WHERE state_name  =  "texas";	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT lake_name FROM lake WHERE state_name  =  "california";	geo
+SELECT lowest_point FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT area FROM state WHERE state_name  =  "new mexico";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT highest_elevation FROM highlow WHERE highest_point  =  "guadalupe peak";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT MAX ( highest_elevation ) FROM highlow;	geo
+SELECT area FROM state WHERE state_name  =  "new mexico";	geo
+SELECT density FROM state WHERE state_name  =  "wyoming";	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MIN ( population ) FROM state );	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT LENGTH FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT LENGTH FROM river WHERE river_name  =  "rio grande";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MIN ( population ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT SUM ( area ) FROM state;	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT COUNT ( city_name ) FROM city WHERE population  >  150000;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT highest_point FROM highlow WHERE state_name  =  "texas";	geo
+SELECT COUNT ( state_name ) FROM state;	geo
+SELECT area FROM state WHERE state_name  =  "new mexico";	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT SUM ( area ) FROM state;	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city WHERE state_name  =  "wyoming" ) AND state_name  =  "wyoming";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT population FROM city WHERE city_name  =  "boulder";	geo
+SELECT SUM ( area ) FROM state;	geo
+SELECT area FROM state WHERE state_name  =  "new mexico";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MIN ( population ) FROM city );	geo
+SELECT river_name FROM river WHERE traverse  =  "illinois";	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT state_name FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT COUNT ( river_name ) FROM river WHERE traverse  =  "idaho";	geo
+SELECT density FROM state WHERE state_name  =  "wyoming";	geo
+SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";	geo
+SELECT state_name FROM state;	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MIN ( density ) FROM state );	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MAX ( LENGTH ) FROM river );	geo
+SELECT state_name FROM state WHERE density  =  ( SELECT MAX ( density ) FROM state );	geo
+SELECT population FROM state WHERE state_name  =  "california";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MIN ( population ) FROM state );	geo
+SELECT population FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT city_name FROM city WHERE population  >  150000;	geo
+SELECT capital FROM state WHERE state_name  =  "texas";	geo
+SELECT state_name FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );	geo
+SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );	geo
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT state_name FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT state_name FROM mountain WHERE mountain_name  =  "whitney";	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT lake_name FROM lake WHERE area  >  750;	geo
+SELECT DISTINCT t3.paperid FROM writes AS t2 JOIN author AS t1 ON t2.authorid  =  t1.authorid JOIN paper AS t3 ON t2.paperid  =  t3.paperid WHERE t1.authorname  =  "subhasis chaudhuri";	scholar
+SELECT DISTINCT COUNT ( DISTINCT t3.paperid ) FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname LIKE "ImageNet";	scholar
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT highest_elevation FROM highlow;	geo
+SELECT area FROM state WHERE area  =  ( SELECT MIN ( area ) FROM state );	geo
+SELECT area FROM state;	geo
+SELECT capital FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "monte carlo simulation" AND t3.year  >  2011;	scholar
+SELECT LENGTH FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT COUNT ( city_name ) FROM city WHERE population  >  150000 AND state_name  =  "texas";	geo
+SELECT MAX ( area ) FROM state;	geo
+SELECT density FROM state WHERE capital  =  "austin";	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT river_name FROM river;	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "monte carlo simulation" AND t3.year  >  2011;	scholar
+SELECT DISTINCT capital FROM state;	geo
+SELECT state_name FROM state WHERE capital  =  "salem";	geo
+SELECT mountain_altitude FROM mountain WHERE mountain_name  =  "mckinley";	geo
+SELECT lake_name FROM lake;	geo
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT state_name FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow );	geo
+SELECT lake_name FROM lake WHERE area  >  750;	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "monte carlo simulation" AND t3.year  >  2011;	scholar
+SELECT state_name FROM state WHERE capital  =  "salem";	geo
+SELECT state_name FROM mountain WHERE mountain_name  =  "whitney";	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "monte carlo simulation" AND t3.year  >  2011;	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";	scholar
+SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";	scholar
+SELECT COUNT ( city_name ) FROM city WHERE population  >  150000 AND state_name  =  "texas";	geo
+SELECT COUNT ( city_name ) FROM city WHERE population  >  150000 AND state_name  =  "texas";	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "monte carlo simulation" AND t3.year  >  2011;	scholar
+SELECT state_name FROM city GROUP BY state_name ORDER BY SUM ( population ) DESC LIMIT 1;	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "dependent types";	scholar
+SELECT state_name FROM mountain;	geo
+SELECT lowest_elevation FROM highlow WHERE lowest_point  =  "death valley";	geo
+SELECT AVG ( population ) FROM state;	geo
+SELECT DISTINCT COUNT ( DISTINCT paperid ) FROM paper;	scholar
+SELECT river_name FROM river WHERE LENGTH  =  ( SELECT MIN ( LENGTH ) FROM river );	geo
+SELECT MAX ( area ) FROM state;	geo
+SELECT state_name FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );	geo
+SELECT COUNT ( city_name ) FROM city WHERE city_name  =  "austin";	geo
+SELECT name FROM business WHERE rating  >  4.5;	yelp
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT DISTINCT t3.paperid  ,  t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" ORDER BY t3.year DESC;	scholar
+SELECT name FROM business WHERE rating  <  2 AND state  =  "Texas";	yelp
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.rating  >  3.5 AND t2.category_name  =  "restaurant";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t1.rating  >  4.5 AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "question answering" AND t3.year  =  2016;	scholar
+SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";	scholar
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT DISTINCT paperid FROM paper WHERE YEAR  =  2014;	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "character recognition" AND t3.year  <  2010;	scholar
+SELECT t1.city FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "MGM Grand Buffet" AND t1.state  =  "Texas" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t3.citingpaperid FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "ACL" GROUP BY t3.citingpaperid HAVING COUNT ( DISTINCT t3.citedpaperid )  <  5;	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Madison" AND t2.category_name  =  "escape games";	yelp
+SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" GROUP BY t3.year ORDER BY t3.year ASC;	scholar
+SELECT DISTINCT t2.citingpaperid FROM paper AS t1 JOIN cite AS t2 ON t1.paperid  =  t2.citedpaperid GROUP BY t2.citingpaperid HAVING COUNT ( DISTINCT t2.citedpaperid )  >=  5;	scholar
+SELECT DISTINCT COUNT ( t3.citingpaperid ) FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "ACL" GROUP BY t3.citingpaperid HAVING COUNT ( DISTINCT t3.citedpaperid )  >  2;	scholar
+SELECT state FROM business WHERE name  =  "Whataburger";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.rating  >  3.5 AND t2.category_name  =  "restaurant";	yelp
+SELECT COUNT ( DISTINCT text ) FROM review WHERE MONTH  =  "March";	yelp
+SELECT user_id FROM USER WHERE name  =  "Michelle";	yelp
+SELECT COUNT ( DISTINCT text )  ,  MONTH FROM tip GROUP BY MONTH;	yelp
+SELECT DISTINCT paperid FROM paper WHERE YEAR  =  ( SELECT MAX ( YEAR ) FROM paper );	scholar
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t3 JOIN business AS t1 ON t3.business_id  =  t1.business_id JOIN neighbourhood AS t2 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t3.category_name  =  "restaurant" AND t2.neighbourhood_name  =  "Hazelwood";	yelp
+SELECT name FROM business WHERE rating  =  3.5;	yelp
+SELECT DISTINCT t2.citingpaperid FROM paper AS t1 JOIN cite AS t2 ON t1.paperid  =  t2.citedpaperid GROUP BY t2.citingpaperid HAVING COUNT ( DISTINCT t2.citedpaperid )  >  10;	scholar
+SELECT COUNT ( DISTINCT name ) FROM USER WHERE name  =  "Michelle";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "breweries";	yelp
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "convolutional neural networks" AND t3.year  =  2016;	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT full_address FROM business WHERE city  =  "Los Angeles" AND name  =  "Walmart";	yelp
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id JOIN category AS t3 ON t3.business_id  =  t1.business_id WHERE t1.city  =  "Edinburgh" AND t2.category_name  =  "restaurant" AND t3.category_name  =  "Egyptian";	yelp
+SELECT COUNT ( DISTINCT business_id ) FROM business WHERE city  =  "Los Angeles" AND name  =  "Target";	yelp
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.state  =  "Texas" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" GROUP BY t3.year ORDER BY t3.year ASC;	scholar
+SELECT COUNT ( DISTINCT city ) FROM business WHERE name  =  "Panda Express";	yelp
+SELECT COUNT ( DISTINCT text ) FROM tip WHERE YEAR  =  2015;	yelp
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Pittsburgh" AND t1.rating  =  4.5 AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT city FROM business WHERE name  =  "Taj Mahal";	yelp
+SELECT COUNT ( DISTINCT business_id ) FROM business WHERE city  =  "Dallas" AND name  =  "Starbucks" AND state  =  "Texas";	yelp
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "convolutional neural networks" AND t3.year  =  2016;	scholar
+SELECT t1.city FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.name  =  "MGM Grand Buffet" AND t2.category_name  =  "category_category_name0";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "breweries";	yelp
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.state  =  "Pennsylvania" AND t2.category_name  =  "restaurant";	yelp
+SELECT DISTINCT COUNT ( t3.paperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "convolutional neural networks" AND t3.year  =  2016;	scholar
+SELECT AVG ( rating ) FROM review WHERE YEAR  =  2014;	yelp
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "character recognition" AND t3.year  <  2010;	scholar
+SELECT t1.name FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Los Angeles" AND t2.category_name  =  "breweries";	yelp
+SELECT DISTINCT paperid FROM paper WHERE YEAR != 2015;	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "question answering" AND t3.year  =  2016;	scholar
+SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "character recognition" AND t3.year  <  2010;	scholar
+SELECT COUNT ( DISTINCT t1.name ) FROM category AS t2 JOIN business AS t1 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Madison" AND t2.category_name  =  "escape games";	yelp
+SELECT DISTINCT paperid FROM paper WHERE YEAR  =  2014;	scholar
+SELECT DISTINCT journalid FROM paper WHERE YEAR  =  2011 GROUP BY journalid;	scholar
+SELECT city FROM business WHERE rating  <  1.5;	yelp
+SELECT text FROM review WHERE rating  <  1;	yelp
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";	scholar
+SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;	scholar
+SELECT DISTINCT title  ,  YEAR FROM paper WHERE title  =  "A Switching Architecture For ISDN";	scholar
+SELECT COUNT ( DISTINCT title  ) FROM movie WHERE release_year  =  2013;	imdb
+SELECT release_year FROM movie WHERE title  =  "The Imitation Game";	imdb
+SELECT homepage FROM conference WHERE name  =  "VLDB";	academic
+SELECT name FROM actor WHERE birth_city  =  "Tehran";	imdb
+SELECT birth_city FROM director WHERE name  =  "director_name0";	imdb
+SELECT birth_year FROM actor WHERE name  =  "Benedict Cumberbatch";	imdb
+SELECT budget FROM movie WHERE release_year  =  2007 AND title  =  "Juno";	imdb
+SELECT COUNT ( DISTINCT name  ) FROM actor WHERE birth_city  =  "Los Angeles" AND birth_year  >  2000;	imdb
+SELECT COUNT ( DISTINCT t2.name ) FROM domain_author AS t4 JOIN author AS t1 ON t4.aid  =  t1.aid JOIN DOMAIN AS t3 ON t3.did  =  t4.did JOIN organization AS t2 ON t2.oid  =  t1.oid WHERE t3.name  =  "Databases";	academic
+SELECT name FROM organization;	academic
+SELECT YEAR FROM publication WHERE title  =  "Making database systems usable";	academic
+SELECT YEAR FROM publication WHERE title  =  "Making database systems usable";	academic
+SELECT t3.name FROM DOMAIN AS t3 JOIN domain_journal AS t1 ON t3.did  =  t1.did JOIN journal AS t2 ON t2.jid  =  t1.jid WHERE t2.name  =  "PVLDB";	academic
+SELECT COUNT ( DISTINCT t2.name ) FROM domain_author AS t4 JOIN author AS t1 ON t4.aid  =  t1.aid JOIN DOMAIN AS t3 ON t3.did  =  t4.did JOIN organization AS t2 ON t2.oid  =  t1.oid WHERE t3.name  =  "Databases" AND t2.continent  =  "North America";	academic
+SELECT title FROM publication WHERE citation_num  >  200 AND YEAR  >  2000;	academic
+SELECT name FROM actor WHERE birth_city  =  "Austin" AND gender  =  "female";	imdb
+SELECT COUNT ( DISTINCT name ) FROM organization WHERE continent  =  "North America";	academic
+SELECT COUNT ( DISTINCT keyword ) FROM keyword;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "mountain view" AND t1.food_type  =  "arabic" AND t1.rating  >  2.5;	restaurants
+SELECT title FROM movie WHERE release_year  =  2015;	imdb
+SELECT abstract FROM publication WHERE title  =  "Making database systems usable";	academic
+SELECT name FROM actor WHERE birth_year  >  1980 AND nationality  =  "Italy";	imdb
+SELECT birth_year FROM actor WHERE name  =  "actor_name0";	imdb
+SELECT name FROM actor WHERE nationality  =  "Afghanistan";	imdb
+SELECT name FROM actor WHERE birth_city  =  "Tehran";	imdb
+SELECT birth_year FROM actor WHERE name  =  "Benedict Cumberbatch";	imdb
+SELECT t1.name FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid WHERE t2.name  =  "University of Michigan";	academic
+SELECT t2.title FROM CAST AS t3 JOIN actor AS t1 ON t3.aid  =  t1.aid JOIN movie AS t2 ON t2.mid  =  t3.msid WHERE t1.name  =  "Robin Wright";	imdb
+SELECT COUNT ( DISTINCT name ) FROM organization;	academic
+SELECT birth_year FROM actor WHERE name  =  "actor_name0";	imdb
+SELECT nationality FROM director WHERE name  =  "director_name0";	imdb
+SELECT name FROM actor WHERE nationality  =  "Afghanistan";	imdb
+SELECT title FROM publication WHERE citation_num  >  200;	academic
+SELECT name FROM actor WHERE birth_city  =  "Austin" AND birth_year  >  1980;	imdb
+SELECT COUNT ( DISTINCT t1.name ) FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid WHERE t2.name  =  "University of Michigan";	academic
+SELECT t2.name FROM organization AS t2 JOIN author AS t1 ON t2.oid  =  t1.oid WHERE t1.name  =  "H. V. Jagadish";	academic
+SELECT name FROM actor WHERE birth_city  =  "Tehran";	imdb
+SELECT name FROM actor WHERE birth_year  =  1984;	imdb
+SELECT keyword FROM keyword;	academic
+SELECT name FROM director WHERE nationality  =  "Afghanistan";	imdb
+SELECT name FROM actor WHERE birth_city  =  "New York City" AND birth_year  =  1984;	imdb
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t2.city_name  =  "alameda" AND t1.rating  >  2.5;	restaurants
+SELECT birth_city FROM director WHERE name  =  "director_name0";	imdb
+SELECT name FROM organization WHERE continent  =  "North America";	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants
+SELECT homepage FROM journal WHERE name  =  "PVLDB";	academic
+SELECT t2.name FROM domain_author AS t4 JOIN author AS t1 ON t4.aid  =  t1.aid JOIN DOMAIN AS t3 ON t3.did  =  t4.did JOIN organization AS t2 ON t2.oid  =  t1.oid WHERE t3.name  =  "Databases" AND t2.continent  =  "North America";	academic
+SELECT name FROM actor WHERE birth_city  =  "Austin" AND birth_year  >  1980;	imdb
+SELECT t2.name FROM domain_conference AS t3 JOIN conference AS t1 ON t3.cid  =  t1.cid JOIN DOMAIN AS t2 ON t2.did  =  t3.did WHERE t1.name  =  "VLDB";	academic
+SELECT homepage FROM organization WHERE name  =  "University of Michigan";	academic
+SELECT COUNT ( DISTINCT t2.title ) FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" AND t2.year  <  2000;	academic
+SELECT title FROM publication WHERE YEAR  >  2000;	academic
+SELECT nationality FROM actor WHERE name  =  "Christoph Waltz";	imdb
+SELECT homepage FROM author WHERE name  =  "H. V. Jagadish";	academic
+SELECT name FROM actor WHERE nationality  =  "Afghanistan";	imdb
+SELECT budget FROM movie WHERE title  =  "Finding Nemo";	imdb
+SELECT name FROM actor WHERE birth_city  =  "New York City" AND birth_year  >  1980 AND gender  =  "female";	imdb
+SELECT release_year FROM movie WHERE title  =  "The Imitation Game";	imdb
+SELECT COUNT ( DISTINCT name  ) FROM actor WHERE birth_city  =  "New York City" AND birth_year  >  1980 AND gender  =  "female";	imdb
+SELECT name FROM actor WHERE birth_city  =  "Austin" AND birth_year  >  1980;	imdb
+SELECT nationality FROM actor WHERE name  =  "Christoph Waltz";	imdb
+SELECT COUNT ( DISTINCT t2.title ) FROM publication AS t2 JOIN journal AS t1 ON t2.jid  =  t1.jid WHERE t1.name  =  "PVLDB" AND t2.year  >  2000;	academic
+SELECT reference_num FROM publication WHERE title  =  "Making database systems usable";	academic
+SELECT COUNT ( DISTINCT title  ) FROM movie WHERE release_year  =  2013;	imdb
+SELECT COUNT ( DISTINCT title ) FROM publication WHERE YEAR  >  2000;	academic
+SELECT t2.house_number  ,  t1.name FROM restaurant AS t1 JOIN LOCATION AS t2 ON t1.id  =  t2.restaurant_id WHERE t1.food_type  =  "french" AND t1.rating  >  2.5;	restaurants

@@ -47,6 +47,7 @@ nvidia-nccl-cu12==2.20.5
 nvidia-nvjitlink-cu12==12.4.127
 nvidia-nvtx-cu12==12.1.105
 packaging==24.1
+pandas==2.2.3
 parso==0.8.4
 pexpect==4.9.0
 platformdirs==4.3.6

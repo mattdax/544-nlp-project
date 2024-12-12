@@ -40,57 +40,60 @@ def main(model_name: Optional[str] = None, batch_size: int = 1, quantize: bool =
         use_cache=True,
     )
     device = model.device
+    model.eval()
 
     if tokenizer.pad_token is None:
         tokenizer.add_special_tokens({"pad_token": "<pad>"})
         model.resize_token_embeddings(len(tokenizer))
         model.config.pad_token_id = tokenizer.pad_token_id
 
-    dataset = get_spider_devset(tokenizer)
+    for c in ["EASY", "NON-NESTED", "NESTED"]:
+        dataset = get_spider_devset(tokenizer, classification=c)
 
-    dataset.encodings.to(device)
+        dataset.encodings.to(device)
 
-    gold = open("./gold_query.txt", "w")
-    generated = open("./generated.txt", "w")
+        gold = open(f"./gold_query-{c}.txt", "w")
+        generated = open(f"./generated-{c}.txt", "w")
 
-    dataloader = DataLoader(dataset, batch_size=batch_size)
+        dataloader = DataLoader(dataset, batch_size=batch_size)
 
-    # generation params
-    num_beams = 4
+        # generation params
+        num_beams = 4
 
-    with torch.no_grad():
-        for batch in tqdm(dataloader):
-            inputs, labels = batch
+        with torch.no_grad():
+            for batch in tqdm(dataloader):
+                inputs, labels = batch
 
-            # Generation parameters
-            generated_ids = model.generate(
-                **inputs,
-                num_return_sequences=4,
-                eos_token_id=tokenizer.eos_token_id,
-                pad_token_id=tokenizer.eos_token_id,
-                max_new_tokens=256,
-                do_sample=False,
-                num_beams=num_beams,
-            )
-            outputs = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
-
-            # empty cache to generate more results w/o memory crashing
-            torch.cuda.empty_cache()
-            torch.cuda.synchronize()
-
-            # Write outputs
-            for output in outputs[::num_beams]:
-                generated_sql = (
-                    output.split("[SQL]")[-1].split("[")[0].replace("\n", " ").strip()
+                # Generation parameters
+                generated_ids = model.generate(
+                    **inputs,
+                    num_return_sequences=4,
+                    eos_token_id=tokenizer.eos_token_id,
+                    pad_token_id=tokenizer.eos_token_id,
+                    max_new_tokens=256,
+                    do_sample=False,
+                    num_beams=num_beams,
                 )
-                generated.write(generated_sql + "\n")
+                outputs = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
 
-            # Write gold queries
-            for sql, db in zip(labels["sql"], labels["database"]):
-                gold.write(f"{sql}\t{db}\n")
+                # empty cache to generate more results w/o memory crashing
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()
 
-    gold.close()
-    generated.close()
+                # Write outputs
+                for output in outputs[::num_beams]:
+                    generated_sql = (
+                        output.split("[SQL]")[-1].split("[")[0].replace("\n", " ").strip()
+                    )
+                    generated.write(generated_sql + "\n")
+
+                # Write gold queries
+                for sql, db in zip(labels["sql"], labels["database"]):
+                    sql = sql.replace("\t", "")
+                    gold.write(f"{sql}\t{db}\n")
+
+        gold.close()
+        generated.close()
 
 
 if __name__ == "__main__":

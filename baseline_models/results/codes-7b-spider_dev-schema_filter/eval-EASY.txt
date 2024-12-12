@@ -1,0 +1,224 @@
+hard pred: SELECT state_name FROM city WHERE population  =  ( SELECT MIN ( population ) FROM city );
+hard gold: SELECT state_name FROM city GROUP BY state_name ORDER BY SUM ( population ) LIMIT 1;
+
+hard pred: SELECT state.capital FROM state JOIN city ON state.capital  =  city.city_name WHERE city.population  =  ( SELECT MAX ( city.population ) FROM state JOIN city ON state.capital  =  city.city_name );
+hard gold: SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );
+
+hard pred: SELECT state.capital FROM state JOIN city ON state.capital  =  city.city_name WHERE city.population  =  ( SELECT MAX ( city.population ) FROM state JOIN city ON state.capital  =  city.city_name );
+hard gold: SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );
+
+easy pred: SELECT lowest_elevation FROM highlow WHERE state_name  =  "iowa";
+easy gold: SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";
+
+easy pred: SELECT highest_elevation FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );
+easy gold: SELECT MAX ( highest_elevation ) FROM highlow;
+
+easy pred: SELECT highest_point FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );
+easy gold: SELECT highest_point FROM highlow;
+
+hard pred: SELECT capital FROM state WHERE population  =  ( SELECT MAX ( population ) FROM state );
+hard gold: SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );
+
+easy pred: SELECT highlow.highest_elevation FROM state JOIN highlow ON state.state_name  =  highlow.state_name WHERE state.state_name  =  "delaware";
+easy gold: SELECT highest_elevation FROM highlow WHERE state_name  =  "delaware";
+
+easy pred: SELECT MAX ( highest_elevation ) FROM highlow WHERE state_name  =  "texas";
+easy gold: SELECT highest_point FROM highlow WHERE state_name  =  "texas";
+
+easy pred: SELECT highest_elevation FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );
+easy gold: SELECT MAX ( highest_elevation ) FROM highlow;
+
+easy pred: SELECT lowest_elevation FROM highlow WHERE state_name  =  "iowa";
+easy gold: SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";
+
+easy pred: SELECT highest_elevation FROM highlow WHERE state_name  =  "texas";
+easy gold: SELECT highest_point FROM highlow WHERE state_name  =  "texas";
+
+easy pred: SELECT lowest_elevation FROM highlow WHERE state_name  =  "iowa";
+easy gold: SELECT lowest_point FROM highlow WHERE state_name  =  "iowa";
+
+hard pred: SELECT capital FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );
+hard gold: SELECT city_name FROM city WHERE population  =  ( SELECT MAX ( t1.population ) FROM state AS t2 JOIN city AS t1 ON t2.capital  =  t1.city_name );
+
+extra pred: SELECT DISTINCT dataset.datasetId FROM paperDataset JOIN dataset ON paperDataset.datasetId  =  dataset.datasetId JOIN paper ON paper.paperId  =  paperDataset.paperId JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "semantic parsing";
+extra gold: SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";
+
+extra pred: SELECT DISTINCT COUNT ( paper.paperId ) FROM paper JOIN paperDataset ON paper.paperId  =  paperDataset.paperId JOIN dataset ON paperDataset.datasetId  =  dataset.datasetId WHERE dataset.datasetName  =  "ImageNet";
+extra gold: SELECT DISTINCT COUNT ( DISTINCT t3.paperid ) FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname LIKE "ImageNet";
+
+easy pred: SELECT highest_elevation FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow );
+easy gold: SELECT highest_elevation FROM highlow;
+
+extra pred: SELECT DISTINCT dataset.datasetId FROM paper JOIN paperDataset ON paper.paperId  =  paperDataset.paperId JOIN dataset ON paperDataset.datasetId  =  dataset.datasetId JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "semantic parsing";
+extra gold: SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";
+
+medium pred: SELECT DISTINCT COUNT ( paper.paperId ) ,  venue.venueName FROM venue JOIN paper ON venue.venueId  =  paper.venueId GROUP BY venue.venueName ORDER BY COUNT ( paper.paperId ) DESC;
+medium gold: SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "chi";
+
+extra pred: SELECT DISTINCT dataset.datasetId FROM paper JOIN paperDataset ON paper.paperId  =  paperDataset.paperId JOIN dataset ON paperDataset.datasetId  =  dataset.datasetId JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "semantic parsing";
+extra gold: SELECT DISTINCT t2.datasetid FROM paperdataset AS t3 JOIN dataset AS t2 ON t3.datasetid  =  t2.datasetid JOIN paperkeyphrase AS t1 ON t1.paperid  =  t3.paperid JOIN keyphrase AS t4 ON t1.keyphraseid  =  t4.keyphraseid WHERE t4.keyphrasename  =  "semantic parsing";
+
+hard pred: SELECT DISTINCT paper.paperId ,  paper.year FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "Question Answering";
+hard gold: SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "Question Answering";
+
+hard pred: SELECT state_name FROM city WHERE population  =  ( SELECT MAX ( population ) FROM city );
+hard gold: SELECT state_name FROM city GROUP BY state_name ORDER BY SUM ( population ) DESC LIMIT 1;
+
+hard pred: SELECT DISTINCT COUNT ( paper.paperId ) ,  keyphrase.keyphraseName FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId GROUP BY keyphrase.keyphraseName ORDER BY COUNT ( paper.paperId ) DESC;
+hard gold: SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "dependent types";
+
+easy pred: SELECT highest_elevation FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow WHERE state_name  =  "death valley" ) ) AND lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow WHERE highest_elevation  =  ( SELECT MAX ( highest_elevation ) FROM highlow WHERE lowest_elevation  =  ( SELECT MIN ( lowest_elevation ) FROM highlow WHERE state_name  =  "death valley" ) ) ) AND state_name  =  "death valley";
+easy gold: SELECT lowest_elevation FROM highlow WHERE lowest_point  =  "death valley";
+
+easy pred: SELECT AVG ( population ) ,  state_name FROM state GROUP BY state_name;
+easy gold: SELECT AVG ( population ) FROM state;
+
+easy pred: SELECT DISTINCT COUNT ( DISTINCT paper.paperId ) FROM paper JOIN cite ON paper.paperId  =  cite.citedPaperId JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "information retrieval";
+easy gold: SELECT DISTINCT COUNT ( DISTINCT paperid ) FROM paper;
+
+easy pred: SELECT area FROM state WHERE area  =  ( SELECT MAX ( area ) FROM state );
+easy gold: SELECT MAX ( area ) FROM state;
+
+medium pred: SELECT business.name FROM category JOIN business ON category.business_id  =  business.business_id WHERE business.state  =  "Texas" AND business.rating  <  2;
+medium gold: SELECT name FROM business WHERE rating  <  2 AND state  =  "Texas";
+
+hard pred: SELECT DISTINCT paper.paperId FROM paperDataset JOIN dataset ON paperDataset.datasetId  =  dataset.datasetId JOIN paper ON paper.paperId  =  paperDataset.paperId WHERE dataset.datasetName LIKE "WebKB";
+hard gold: SELECT DISTINCT t3.paperid FROM paperdataset AS t2 JOIN dataset AS t1 ON t2.datasetid  =  t1.datasetid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.datasetname  =  "WebKB";
+
+easy pred: SELECT DISTINCT paper.paperId FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE paper.year  =  2014;
+easy gold: SELECT DISTINCT paperid FROM paper WHERE YEAR  =  2014;
+
+extra pred: SELECT DISTINCT paper.paperId ,  paper.year FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE venue.venueName  =  "ACL" AND paper.numCiting  <  5;
+extra gold: SELECT DISTINCT t3.citingpaperid FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "ACL" GROUP BY t3.citingpaperid HAVING COUNT ( DISTINCT t3.citedpaperid )  <  5;
+
+extra pred: SELECT DISTINCT paper.paperId ,  paper.year FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "deep learning" ORDER BY paper.year ASC;
+extra gold: SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" GROUP BY t3.year ORDER BY t3.year ASC;
+
+extra pred: SELECT DISTINCT COUNT ( paper.paperId ) FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE venue.venueName  =  "ACL" AND paper.numCiting  >  2;
+extra gold: SELECT DISTINCT COUNT ( t3.citingpaperid ) FROM paper AS t1 JOIN cite AS t3 ON t1.paperid  =  t3.citedpaperid JOIN venue AS t2 ON t2.venueid  =  t1.venueid WHERE t2.venuename  =  "ACL" GROUP BY t3.citingpaperid HAVING COUNT ( DISTINCT t3.citedpaperid )  >  2;
+
+easy pred: SELECT business.state FROM category JOIN business ON category.business_id  =  business.business_id WHERE category.category_name  =  "Whataburger";
+easy gold: SELECT state FROM business WHERE name  =  "Whataburger";
+
+hard pred: SELECT DISTINCT paper.paperId FROM paper JOIN venue ON paper.venueId  =  venue.venueId WHERE paper.year  =  2015;
+hard gold: SELECT DISTINCT paperid FROM paper WHERE YEAR  =  ( SELECT MAX ( YEAR ) FROM paper );
+
+hard pred: SELECT COUNT ( DISTINCT business.name ) FROM category JOIN business ON category.business_id  =  business.business_id JOIN neighbourhood ON neighbourhood.business_id  =  business.business_id WHERE business.city  =  "Dallas" AND business.state  =  "Texas" AND category.category_name  =  "restaurant" AND neighbourhood.neighbourhood_name  =  "Hazelwood";
+hard gold: SELECT COUNT ( DISTINCT t1.name ) FROM category AS t3 JOIN business AS t1 ON t3.business_id  =  t1.business_id JOIN neighbourhood AS t2 ON t2.business_id  =  t1.business_id WHERE t1.city  =  "Dallas" AND t3.category_name  =  "restaurant" AND t2.neighbourhood_name  =  "Hazelwood";
+
+medium pred: SELECT DISTINCT paper.paperId ,  paper.year FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE venue.venueName  =  "pldi" AND paper.year  =  2015 ORDER BY paper.numCiting DESC;
+medium gold: SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";
+
+medium pred: SELECT COUNT ( DISTINCT business.name ) FROM category JOIN business ON category.business_id  =  business.business_id WHERE business.city  =  "Los Angeles" AND category.category_name  =  "Target";
+medium gold: SELECT COUNT ( DISTINCT business_id ) FROM business WHERE city  =  "Los Angeles" AND name  =  "Target";
+
+extra pred: SELECT DISTINCT paper.year FROM paperKeyphrase JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId JOIN paper ON paper.paperId  =  paperKeyphrase.paperId WHERE keyphrase.keyphraseName  =  "deep learning";
+extra gold: SELECT DISTINCT t3.year FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "deep learning" GROUP BY t3.year ORDER BY t3.year ASC;
+
+extra pred: SELECT DISTINCT paper.paperId ,  paper.year FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "parsing" ORDER BY paper.year DESC;
+extra gold: SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;
+
+easy pred: SELECT business.city FROM category JOIN business ON category.business_id  =  business.business_id WHERE business.name  =  "Taj Mahal" AND category.category_name  =  "city";
+easy gold: SELECT city FROM business WHERE name  =  "Taj Mahal";
+
+medium pred: SELECT COUNT ( DISTINCT business.name ) FROM category JOIN business ON category.business_id  =  business.business_id WHERE business.city  =  "Dallas" AND business.state  =  "Texas" AND category.category_name  =  "Starbucks";
+medium gold: SELECT COUNT ( DISTINCT business_id ) FROM business WHERE city  =  "Dallas" AND name  =  "Starbucks" AND state  =  "Texas";
+
+easy pred: SELECT DISTINCT paper.paperId FROM paper JOIN venue ON paper.venueId  =  venue.venueId WHERE paper.year!= 2015;
+easy gold: SELECT DISTINCT paperid FROM paper WHERE YEAR != 2015;
+
+hard pred: SELECT DISTINCT paper.paperId ,  paper.year FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "question answering" AND paper.year  =  2015;
+hard gold: SELECT DISTINCT t3.paperid FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid WHERE t1.keyphrasename  =  "question answering" AND t3.year  =  2016;
+
+easy pred: SELECT DISTINCT paper.paperId FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE paper.year  =  2014;
+easy gold: SELECT DISTINCT paperid FROM paper WHERE YEAR  =  2014;
+
+medium pred: SELECT DISTINCT journal.journalName FROM paper JOIN journal ON paper.journalId  =  journal.journalId WHERE paper.year  =  2015;
+medium gold: SELECT DISTINCT journalid FROM paper WHERE YEAR  =  2011 GROUP BY journalid;
+
+easy pred: SELECT review.text FROM review JOIN business ON review.business_id  =  business.business_id WHERE business.rating  <  1;
+easy gold: SELECT text FROM review WHERE rating  <  1;
+
+medium pred: SELECT DISTINCT paper.paperId ,  paper.year FROM venue JOIN paper ON venue.venueId  =  paper.venueId WHERE venue.venueName  =  "pldi" AND paper.year  =  2015;
+medium gold: SELECT DISTINCT t1.paperid FROM venue AS t2 JOIN paper AS t1 ON t2.venueid  =  t1.venueid WHERE t1.year  =  2015 AND t2.venuename  =  "pldi";
+
+extra pred: SELECT DISTINCT paper.paperId FROM paper JOIN cite ON paper.paperId  =  cite.citedPaperId JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "parsing";
+extra gold: SELECT DISTINCT t4.citedpaperid  ,  COUNT ( t4.citedpaperid ) FROM paperkeyphrase AS t2 JOIN keyphrase AS t1 ON t2.keyphraseid  =  t1.keyphraseid JOIN paper AS t3 ON t3.paperid  =  t2.paperid JOIN cite AS t4 ON t3.paperid  =  t4.citedpaperid WHERE t1.keyphrasename  =  "parsing" GROUP BY t4.citedpaperid ORDER BY COUNT ( t4.citedpaperid ) DESC;
+
+medium pred: SELECT DISTINCT paper.year FROM paper JOIN paperKeyphrase ON paper.paperId  =  paperKeyphrase.paperId JOIN keyphrase ON paperKeyphrase.keyphraseId  =  keyphrase.keyphraseId WHERE keyphrase.keyphraseName  =  "A Switching Architecture For ISDN";
+medium gold: SELECT DISTINCT title  ,  YEAR FROM paper WHERE title  =  "A Switching Architecture For ISDN";
+
+easy pred: SELECT COUNT ( DISTINCT movie.title  ) FROM movie JOIN made_by ON movie.mid  =  made_by.msid JOIN producer ON producer.pid  =  made_by.pid WHERE movie.release_year  =  2013;
+easy gold: SELECT COUNT ( DISTINCT title  ) FROM movie WHERE release_year  =  2013;
+
+easy pred: SELECT birth_city FROM actor WHERE name  =  "actor_name0";
+easy gold: SELECT birth_city FROM director WHERE name  =  "director_name0";
+
+medium pred: SELECT count(*) FROM actor WHERE birth_city  =  "Los Angeles" AND birth_year  >  2000
+medium gold: SELECT COUNT ( DISTINCT name  ) FROM actor WHERE birth_city  =  "Los Angeles" AND birth_year  >  2000;
+
+hard pred: SELECT DISTINCT DOMAIN.name FROM DOMAIN JOIN domain_publication ON DOMAIN.did  =  domain_publication.did JOIN publication ON publication.pid  =  domain_publication.pid JOIN journal ON publication.jid  =  journal.jid WHERE journal.name  =  "PVLDB";
+hard gold: SELECT t3.name FROM DOMAIN AS t3 JOIN domain_journal AS t1 ON t3.did  =  t1.did JOIN journal AS t2 ON t2.jid  =  t1.jid WHERE t2.name  =  "PVLDB";
+
+medium pred: SELECT publication.title FROM publication JOIN cite ON publication.pid  =  cite.cited WHERE publication.year  >  2000 AND publication.citation_num  >  200;
+medium gold: SELECT title FROM publication WHERE citation_num  >  200 AND YEAR  >  2000;
+
+easy pred: SELECT COUNT ( DISTINCT keyword.keyword ) FROM keyword JOIN publication_keyword ON keyword.kid  =  publication_keyword.kid
+easy gold: SELECT COUNT ( DISTINCT keyword ) FROM keyword;
+
+medium pred: SELECT name FROM actor WHERE birth_city  =  "Italy" AND birth_year  >  1980;
+medium gold: SELECT name FROM actor WHERE birth_year  >  1980 AND nationality  =  "Italy";
+
+easy pred: SELECT nationality FROM actor WHERE name  =  "actor_name0";
+easy gold: SELECT nationality FROM director WHERE name  =  "director_name0";
+
+easy pred: SELECT birth_city FROM actor WHERE name  =  "actor_name0";
+easy gold: SELECT birth_city FROM director WHERE name  =  "director_name0";
+
+medium pred: SELECT count(*) FROM actor WHERE birth_city  =  "New York City" AND birth_year  >  1980 AND gender  =  "female";
+medium gold: SELECT COUNT ( DISTINCT name  ) FROM actor WHERE birth_city  =  "New York City" AND birth_year  >  1980 AND gender  =  "female";
+
+easy pred: SELECT count(*) FROM movie WHERE release_year  =  2013
+easy gold: SELECT COUNT ( DISTINCT title  ) FROM movie WHERE release_year  =  2013;
+
+                     easy                 medium               hard                 extra                all                 
+count                153                  44                   117                  29                   343                 
+=====================   EXECUTION ACCURACY     =====================
+execution            0.967                1.000                0.983                0.966                0.977               
+
+====================== EXACT MATCHING ACCURACY =====================
+exact match          0.830                0.727                0.889                0.655                0.822               
+
+---------------------PARTIAL MATCHING ACCURACY----------------------
+select               0.908                0.795                0.940                0.862                0.901               
+select(no AGG)       0.928                0.795                0.940                0.862                0.910               
+where                0.894                0.900                0.940                0.897                0.912               
+where(no OP)         0.894                0.900                0.957                0.931                0.922               
+group(no Having)     0.000                0.750                0.000                1.000                0.750               
+group                0.000                0.750                0.000                1.000                0.750               
+order                0.000                0.000                0.000                0.889                0.667               
+and/or               1.000                1.000                1.000                1.000                1.000               
+IUEN                 0.000                0.000                0.000                0.000                0.000               
+keywords             0.944                0.932                0.966                0.759                0.933               
+---------------------- PARTIAL MATCHING RECALL ----------------------
+select               0.908                0.795                0.940                0.862                0.901               
+select(no AGG)       0.928                0.795                0.940                0.862                0.910               
+where                0.940                0.878                0.948                0.897                0.930               
+where(no OP)         0.940                0.878                0.965                0.931                0.940               
+group(no Having)     0.000                0.750                0.000                0.500                0.500               
+group                0.000                0.750                0.000                0.500                0.500               
+order                0.000                0.000                0.000                0.727                0.615               
+and/or               0.987                1.000                1.000                0.931                0.988               
+IUEN                 0.000                0.000                0.000                0.000                0.000               
+keywords             1.000                0.932                0.966                0.759                0.954               
+---------------------- PARTIAL MATCHING F1 --------------------------
+select               0.908                0.795                0.940                0.862                0.901               
+select(no AGG)       0.928                0.795                0.940                0.862                0.910               
+where                0.917                0.889                0.944                0.897                0.921               
+where(no OP)         0.917                0.889                0.961                0.931                0.931               
+group(no Having)     1.000                0.750                1.000                0.667                0.600               
+group                1.000                0.750                1.000                0.667                0.600               
+order                1.000                1.000                1.000                0.800                0.640               
+and/or               0.993                1.000                1.000                0.964                0.994               
+IUEN                 1.000                1.000                1.000                1.000                1.000               
+keywords             0.971                0.932                0.966                0.759                0.944               
