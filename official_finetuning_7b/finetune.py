@@ -101,10 +101,10 @@ def main(model_name: Optional[str] = None):
     model = prepare_model_for_kbit_training(model)
 
     lora_config = LoraConfig(
-        r=16,
-        lora_alpha=32,
+        r=8,
+        lora_alpha=16,
         lora_dropout=0.05,
-        # target_modules=["q_proj", "v_proj"],
+        target_modules=["c_proj", "c_attn", "q_attn"],
         bias="none",
         task_type=TaskType.CAUSAL_LM,
     )
@@ -134,20 +134,20 @@ def main(model_name: Optional[str] = None):
         # eval_dataset=eval_dataset,
         data_collator=DataCollatorForLanguageModeling(tokenizer, mlm=False),
         args=TrainingArguments(
-            per_device_train_batch_size=4,
+            per_device_train_batch_size=1,
             num_train_epochs=4,
             logging_steps=1,
             # evaluation_strategy="steps",  
             # eval_steps=20, #adjust evaluation loss logging here
             learning_rate=5e-6,
-            output_dir="outputs_zero_shot_4_epochs",
+            output_dir="a40_outputs_zero_shot_4_epochs_target_modules_small",
 	    fp16 = True,
         ),
     )
 
     trainer.train()
-    trainer.save_model("outputs_zero_shot_4_epochs")  # Save the model
-    tokenizer.save_pretrained("outputs_zero_shot_4_epochs")  # Save the tokenizer
+    trainer.save_model("a40_outputs_zero_shot_4_epochs_target_modules_small")  # Save the model
+    tokenizer.save_pretrained("a40_outputs_zero_shot_4_epochs_target_modules_small")  # Save the tokenizer
 
 
 if __name__ == "__main__":

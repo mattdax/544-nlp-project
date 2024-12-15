@@ -6,7 +6,6 @@
 #SBATCH --gres=gpu:a100:1   
 #SBATCH --mem=40G
 #SBATCH --time=48:00:00 
-#SBATCH --nodelist=b02-06      
 #SBATCH --exclusive 
 
 module purge
